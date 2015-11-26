@@ -1,11 +1,11 @@
-<?php
+ï»¿<?php
 return array(
-    //'ÅäÖÃÏî'=>'ÅäÖÃÖµ'
+    //'é…ç½®é¡¹'=>'é…ç½®å€¼'
 
-    // ½ûÖ¹·ÃÎÊµÄÄ£¿é
+    // ç¦æ­¢è®¿é—®çš„æ¨¡å—
     'MODULE_DENY_LIST'       => array('Common', 'Runtime', 'Upload'),
 
-    // Êı¾İ¿â
+    // æ•°æ®åº“
     'DB_TYPE'                => 'mysql',
     'DB_HOST'                => 'localhost',
     'DB_NAME'                => 'pbplatform',
@@ -14,7 +14,7 @@ return array(
     'DB_PORT'                => '3306',
     'DB_PREFIX'              => 'pb_',
 
-    // Ä£°åÖ÷Ìâ
+    // æ¨¡æ¿ä¸»é¢˜
     'DEFAULT_THEME'          => 'Default',
     'TMPL_LOAD_DEFAULTTHEME' => true,
 
