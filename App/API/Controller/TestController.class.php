@@ -21,19 +21,20 @@ class TestController extends Controller {
         if ($type == 'add') {
             // API参数
             $data = array(
-                "name" => "SISU",
-                "desc" => "老外的保健品品牌",
+                "name" => "供货商A",
+                "phone" => "123-456-789",
+                "email" => "supplier@pbcc.ca",
                 "lang" => "cn",
                 "api" => "add"
             );
 
-            echo "post<br>";
+            echo "add<br>";
             curl_setopt($curl, CURLOPT_POST, 1);
             curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
         } elseif ($type == 'delete') {
             // API参数
             $data = array(
-                "id" => "2",
+                "id" => "1",
                 "lang" => "cn",
                 "api" => "delete"
             );
