@@ -58,7 +58,7 @@ class TestController extends Controller {
             // API参数
             $data = array(
                 "id" => "",
-                "lang" => "cn",
+                "lang" => json_encode(array("cn", "en")),
                 "api" => "get"
             );
 
@@ -74,5 +74,10 @@ class TestController extends Controller {
         print_r($data);
         echo "<br>";
         print_r(json_decode($data, true));
+    }
+
+    public function test() {
+        $data = json_encode(array("cn", "en"));
+        echo is_array(json_decode($data));
     }
 }

@@ -5,7 +5,7 @@ class CategoryController extends RestController {
     protected $allowType = array('json'); // REST允许请求的资源类型列表
 
     public function basic() {
-        $lang = I("lang");
+        $lang = $_POST["lang"];
         if ($lang == '') $lang = C("API_DEFAULT_LANG");
         $api = I("api");
         $db = "category_" . $lang;
