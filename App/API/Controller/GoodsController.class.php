@@ -1,10 +1,10 @@
 <?php
 namespace API\Controller;
 use Think\Controller\RestController;
-class IndexController extends RestController {
+class GoodsController extends RestController {
     protected $allowType = array('json'); // REST允许请求的资源类型列表
 
-    public function request() {
+    public function rest() {
         $username = I("username");
         $password = I('password');
 
