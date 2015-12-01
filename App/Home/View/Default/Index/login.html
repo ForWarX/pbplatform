@@ -1,8 +1,5 @@
 
 <html>
-<?php
-require_once( "App/Home/View/Default/common/headstyle.html" );
-?>
 <head>
   <title></title>
 <style>
@@ -25,38 +22,34 @@ require_once( "App/Home/View/Default/common/headstyle.html" );
 }
 </style>
 </head>
-<body  >
-
-
+<body>
 <!--图片默认-->
   <div class="bs-docs-example bs-docs-example-images">
-            <img class="img-rounded" data-src="holder.js/140x140" alt="80x80" style="width: 140px; height: 140px;" src="img/1.jpg">
+            <img class="img-rounded" data-src="holder.js/140x140" alt="169x136" style="width: 169px; height: 136px;" src="img/polarbearlogo.jpg">
   </div>
-
-
 <!--主体-->
-<form class="bs-docs-example form-horizontal">
-            <div class="control-group">
-              <label id="loginemail" for="inputEmail" class="control-label">{$lang.index_username}</label>
-              <div class="controls">
-                <input type="text" id="username">
-              </div>
-            </div>
-            <div class="control-group">
-              <label id ="loginpassword" for="inputPassword" class="control-label">{$lang.index_userpassword}</label>
-              <div class="controls">
-                <input type="password" id="inputPassword">
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="controls">
-                <label class="checkbox">
-                  <input id="remeberme" type="checkbox">{$lang.index_remeberme}
-                </label><br>
-                <button id="loginbutton" class="btn" type="submit">{$lang.index_login}</button>
-              </div>
-            </div>
-     </form>
+<form>
+    <div class="control-group">
+      <label id="username" for="inputusername" class="control-label">{$lang.index_username}</label>
+        <div class="controls">
+          <input type="text" id="username">
+        </div>
+    </div>
+    <div class="control-group">
+      <label id ="loginpassword" for="inputPassword" class="control-label">{$lang.index_userpassword}</label>
+      <div class="controls">
+        <input type="password" id="inputPassword">
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <label class="checkbox">
+          <input id="remeberme" type="checkbox">{$lang.index_remeberme}
+        </label><br>
+        <button id="loginbutton" class="btn" type="submit">{$lang.index_login}</button>
+      </div>
+    </div>
+</form>
 
 </body>
 </html>

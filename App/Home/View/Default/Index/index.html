@@ -1,33 +1,30 @@
 
 <html>
- 
 <?php
-require_once( "App/Home/View/Default/common/style.html" );
-require_once( "App/Home/View/Default/common/head.html" );
-require_once( "App/Home/View/Default/common/footer.html" );
+require_once( "App/Home/View/Default/common/head-style.html" );
 ?>
-
-<body> 
-<iframe src="/pbplatform/Home/Index/body.html" id="iframe1" name="iframe1"
-        height="70%" width="100%" scrolling="no" frameborder="0" allowtransparency="true" 
-        marginwidth="0" marginheight="0" hspace="0" vspace="0" 
-        onload="style.width=this.contentWindow.document.all.formfra.offsetWidth;style.height=this.contentWindow.document.all.formfra.offsetHeight">
-</iframe>
-
-
+<!--导航--> 
+<head>
+<div class="container" style="background-color:; width:95%; height:7%;">
+<?php
+require_once( "App/Home/View/Default/common/head.html" );
+?>
+</div>
+</head>
+<!--body-->
+<body style="margin:1%;"> 
+	<div class="container" style="background-color:; width:100%; height:82%;">
+		<iframe src="/pbplatform/Home/Index/body.html" id="iframe1" name="iframe1"
+					height="80%" width="100%" scrolling="no" frameborder="0" allowtransparency="true" 
+				    marginwidth="0" marginheight="0" hspace="0" vspace="0" 
+				    onload="style.width=this.contentWindow.document.all.formfra.offsetWidth;style.height=this.contentWindow.document.all.formfra.offsetHeight">
+		</iframe>
+	</div>
+</body> 
 <!--footer-->
-<!--进度条
-<div class="bs-docs-example">
-  <div class="progress progress-striped">
-    <div style="width: 20%;" class="bar"></div>
-  </div>
-</div>-->
-
-</body>
-<!--细分隔线-->
-<hr noshade size=0 color=#C0C0C0>
-<!--export-->
-选择日期：<input type="date" id="exportdate1">到<input type="date" id="exportdate2">
-<button input="" id="expotid">导出</button>
-      
+	<div class="container" style="background-color:; width:95%; height:5%;">
+		<?php
+		require_once( "App/Home/View/Default/common/footer.html" );
+		?>
+    </div> 
 </html>
