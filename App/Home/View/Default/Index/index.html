@@ -1,135 +1,33 @@
 
 <html>
-<head>
-<link rel="stylesheet" type="text/css" href="Public/bootstrap/css/bootstrap-responsive.min.css" >
-<link rel="stylesheet" type="text/css" href="Public/bootstrap/css/bootstrap.min.css">
-<script src="Public/bootstrap/js/jquery.js"></script>
-<script src="Public/bootstrap/js/bootstrap.min.js"></script>
+ 
+<?php
+require_once( "App/Home/View/Default/common/style.html" );
+require_once( "App/Home/View/Default/common/head.html" );
+require_once( "App/Home/View/Default/common/footer.html" );
+?>
 
-<style type="text/css">
-h1, h2, h3, .masthead p, .subhead p, .marketing h2, .lead 
-{
-  font-family: "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei UI","Microsoft YaHei",SimHei,"宋体",simsun,sans-serif;
-  font-weight: normal;
-}
-body{  
-  margin-left: 5%;
-  width: 90%;
-  float: left;
-  //background-color: #DCEAF4;
-  height: 3000px;
-  border-radius: 3px 3px 3px 3px;
-}
-</style>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>PBCC</title>
-</head>
-<body>
-<!--header--><!--导航-->
-<div class="bs-docs-example">
-<div class="navbar">
-<div class="navbar-inner">
-<div class="container">
-  <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar">
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-  </a>
-  <a href="#" class="brand">标题</a>
-<div class="nav-collapse collapse navbar-responsive-collapse">
-  <ul class="nav">
-    <li class="active"><a href="#">首页</a></li>
-    <li><a href="#" >链接1</a></li>
-    <li><a href="#">链接2</a></li>
-  </ul>
-<form action="" class="navbar-search pull-left">
-  <input type="text" placeholder="搜索" class="search-query span2">
-    </form>
-      <ul class="nav pull-right">
-        <li class="divider-vertical"></li>
-        <li class="dropdown">
-        <a data-toggle="dropdown" class="dropdown-toggle" href="#">个人信息 <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-        <li><a href="#">退出</a></li>
-        </ul>
-        </li>
-      </ul>
-</div><!-- /.nav-collapse -->
-</div>
-</div><!-- /navbar-inner -->
-</div><!-- /navbar -->
-</div>
-<!--body-->
-<tbody>
-<!--表格-->
-  <table class="table table-condensed table-hover"  border="1">
-    <thead>
-      <tr>
-        <th>产品货号</th>
-        <th>品牌</th>
-        <th>产品名称</th>
-        <th>产品描述</th>
-        <th>保质期</th>
-        <th>销售单位</th>
-        <th>产地</th>
-        <th>商品类型</th>
-        <th>HSCODE</th>
-        <th>配料</th>
-        <th>规格</th>
-        <th>版规</th>
-        <th>税则号</th>
-        <th>行邮税</th>
-        <th>关税</th>
-        <th>条形码</th>
-        <th>贸易条款</th>
-      </tr>
-    </thead>
-<?php foreach ($variable as $key => $value) { ?>
-  <tr>
-    <td><input type="text" id="Button1" class="span2"></td>
-    <td><input type="text" id="Button2" class="span2"></td>
-    <td><input type="text" id="Button3" class="span2"></td>
-    <td><input type="text" id="Button4" class="span2"></td>
-    <td><input type="text" id="Button5" class="span2"></td>
-    <td><input type="text" id="tButton6" class="span2"></td>
-    <td><input type="text" id="Button7" class="span2"></td>
-    <td><input type="radio" id="Button8" class="span2"></td>
+<body> 
+<iframe src="/pbplatform/Home/Index/body.html" id="iframe1" name="iframe1"
+        height="70%" width="100%" scrolling="no" frameborder="0" allowtransparency="true" 
+        marginwidth="0" marginheight="0" hspace="0" vspace="0" 
+        onload="style.width=this.contentWindow.document.all.formfra.offsetWidth;style.height=this.contentWindow.document.all.formfra.offsetHeight">
+</iframe>
 
-    <td><input type="text" id="Button9" class="span2"></td>
-    <td><input type="text" id="Button10" class="span2"></td>
-    <td><input type="text" id="Button11" class="span2"></td>
-    <td><input type="text" id="Button12" class="span2"></td>
-    <td><input type="text" id="Button13" class="span2"></td>
-    <td><input type="text" id="Button14" class="span2"></td>
-    <td><input type="text" id="Button15" class="span2"></td>
-    <td><input type="text" id="Button16" class="span2"></td>
-    <td><input type="text" id="Button17" class="span2"></td>
-</tr>  
-<?php } ?>  
-  </tbody>
-  </table>
-<!--分页条-->
-  <div class="bs-docs-example">
-  <div class="pagination pagination-right">
-    <ul>
-      <li><a href="#">«</a></li>
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
-      <li><a href="#">»</a></li>
-    </ul>
-  </div>
-  </div> 
 
-<!--进度条-->
+<!--footer-->
+<!--进度条
 <div class="bs-docs-example">
   <div class="progress progress-striped">
     <div style="width: 20%;" class="bar"></div>
   </div>
-</div>
+</div>-->
 
-   
 </body>
+<!--细分隔线-->
+<hr noshade size=0 color=#C0C0C0>
+<!--export-->
+选择日期：<input type="date" id="exportdate1">到<input type="date" id="exportdate2">
+<button input="" id="expotid">导出</button>
+      
 </html>

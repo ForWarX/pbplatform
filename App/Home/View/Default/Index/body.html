@@ -1,0 +1,164 @@
+<html>
+<?php
+require_once( "App/Home/View/Default/common/headstyle.html" );
+?>
+<style type="text/css">
+body{  
+  margin-left: 5%;
+  width: 90%;
+  float: left;
+  //background-color: #DCEAF4;
+  height: 3000px;
+  border-radius: 3px 3px 3px 3px;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>PBCC</title>
+<script type="text/javascript"> 
+
+function Click() {
+   window.parent;
+}
+</script> 
+</head>
+
+<!--body-->
+<body id="ifram2" STYLE="background-color: transparent">
+
+<!--表格-->
+<table class="table table-condensed table-hover"  border="0">
+<tbody>
+  <thead>
+    <tr>
+      <th></th>
+      <th>图片</th>
+      <th>产品货号</th>
+      <th>品牌</th>
+      <th>产品名称</th>
+      <th>产品描述</th>
+      <th>配料</th>
+      <th>保质期</th>
+      <th>销售单位</th>
+      <th>产地</th>
+      <th>商品类型</th>
+      <th>品类</th>
+      <th>HSCODE</th>
+      <th>规格</th>
+      <th>版规</th>
+      <th>箱规</th>
+      <th>税则号</th>
+      <th>行邮税</th>
+      <th>关税</th>
+      <th>条形码</th>
+      <th>贸易条款</th>
+    </tr>
+  </thead>
+<!--backup
+  <thead>
+    <tr>
+      <div class="row-fluid show-grid">
+          <th><div class="span0">产品货号</div></th>
+          <th><div class="span0">品牌</div></th>
+          <th><div class="span0">产品名称</div>
+          <th><div class="span0">产品描述</div></th>
+          <th><div class="span0">保质期</div></th>
+          <th><div class="span0">销售单位</div></th>
+          <th><div class="span0">产地</div></th>
+          <th><div class="span0">商品类型</div></th>
+          <th><div class="span0">品类</div></th>
+          <th><div class="span0">HSCODE</div></th>
+          <th><div class="span0">配料</div></th>
+          <th><div class="span0">规格</div></th>
+          <th><div class="span0">版规</div></th>
+          <th><div class="span0">箱规</div></th>
+          <th><div class="span0">税则号</div></th>
+          <th><div class="span0">行邮税</div></th>
+          <th><div class="span0">关税</div></th>
+          <th><div class="span0">条形码</div></th>
+          <th><div class="span0">贸易条款</div></th>
+      </div> 
+    </tr>
+  </thead>
+-->
+<?php foreach ($variable as $key) { ?>
+  <tr>
+    <td><input type="checkbox" id="button" class="span0"></td>
+    <td><image id="Button0" class="span0"></td>
+    <td><input type="text" id="Button1" class="span1"></td>
+    <td><input type="text" id="Button2" class="span1" ></td>
+    <td><input type="text" id="Button3" class="span1"></td>
+    <td><input type="textarea" id="Button4" class="span1"></td>
+    <td><input type="textarea" id="Button5" class="span1"></td>
+    <td><input type="text" id="Button6" class="span1"></td>
+    <td><input type="text" id="Button7" class="span1"></td>
+    <td><input type="text" id="Button9" class="span1"></td>
+     <td>
+      <form id="Button8">
+        <select>
+          <option></option>
+          <option>跨境</option>
+          <option>一般贸易</option>
+          <option>本地</option>
+          <option>全部</option>
+        </select>
+     </form></td>
+    <td><input type="text" id="Button10" class="span1"></td>
+    <td><input type="text" id="Button11" class="span2"></td>
+    <td><input type="text" id="Button12" class="span1"></td>
+    <td><input type="text" id="Button13" class="span1"></td>
+    <td><input type="text" id="Button12" class="span1"></td>
+    <td><input type="text" id="Button13" class="span1"></td>
+    <td><input type="text" id="Button14" class="span1"></td>
+    <td><input type="text" id="Button15" class="span1"></td>
+    <td><input type="text" id="Button16" class="span2"></td>
+    <td>
+      <form id="Button17">
+        <select>
+          <option></option>
+          <option>FOB</option>
+          <option>CF</option>
+        </select>
+       </form>
+    </td>
+</tr>  
+<?php } ?>  
+  </tbody>
+<!--表格下方功能条-->
+</table>
+    <div class="row-fluid show-grid">
+    <div class="span2">
+        <input type="checkbox" id="button19">全选
+        <button>编辑</button>
+        <button>删除</button> 
+    </div>
+    <div class="span3">
+    <!--显示页面数量-->
+        <form>
+          <div class="btn-group">
+            <button data-toggle="dropdown" class="btn dropdown-toggle">显示15个
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#">显示25个</a></li>
+              <li><a href="#">显示35个</a></li>
+            </ul>
+          </div><!-- /input-append -->
+        </form>
+      </div>
+      <div class="span8 offset4">
+      <!--分页条-->
+      <div class="pagination pagination-right">
+        <ul> 
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#">»</a></li>
+        </ul>
+      </div>
+  </div>         
+</div>
+
+ </body>     
+</html>

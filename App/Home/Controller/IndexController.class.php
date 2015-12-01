@@ -5,7 +5,13 @@ class IndexController extends Controller {
     public function index(){
         $this->display();
     }
+	public function language(){
+        $this->display();
+    }
 
+	public function body(){
+        $this->display();
+    }
     
 	
 	public function show() {
