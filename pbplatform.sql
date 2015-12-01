@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2015 at 02:06 PM
+-- Generation Time: Dec 01, 2015 at 11:45 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.3.15
 
@@ -31,7 +31,14 @@ CREATE TABLE IF NOT EXISTS `pb_brand_cn` (
   `name` varchar(150) NOT NULL,
   `desc` varchar(500) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='品牌' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='品牌' AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `pb_brand_cn`
+--
+
+INSERT INTO `pb_brand_cn` (`id`, `name`, `desc`) VALUES
+(1, 'SISU', '老外的保健品品牌');
 
 -- --------------------------------------------------------
 
@@ -42,9 +49,9 @@ CREATE TABLE IF NOT EXISTS `pb_brand_cn` (
 CREATE TABLE IF NOT EXISTS `pb_carton_spec` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `good_id` int(11) NOT NULL,
-  `length` float NOT NULL,
-  `height` float NOT NULL,
-  `width` float NOT NULL,
+  `length` float NOT NULL COMMENT 'cm',
+  `height` float NOT NULL COMMENT 'cm',
+  `width` float NOT NULL COMMENT 'cm',
   `num` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='箱规' AUTO_INCREMENT=1 ;
@@ -59,7 +66,15 @@ CREATE TABLE IF NOT EXISTS `pb_category_cn` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='品类' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='品类' AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `pb_category_cn`
+--
+
+INSERT INTO `pb_category_cn` (`id`, `name`) VALUES
+(1, '保健品'),
+(3, '首饰');
 
 -- --------------------------------------------------------
 
@@ -68,10 +83,19 @@ CREATE TABLE IF NOT EXISTS `pb_category_cn` (
 --
 
 CREATE TABLE IF NOT EXISTS `pb_currency` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `code` varchar(5) NOT NULL,
-  `desc` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='货币';
+  `desc` varchar(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='货币' AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `pb_currency`
+--
+
+INSERT INTO `pb_currency` (`id`, `code`, `desc`) VALUES
+(1, 'CAD', '加币'),
+(2, 'CAD', '加币');
 
 -- --------------------------------------------------------
 
@@ -85,7 +109,39 @@ CREATE TABLE IF NOT EXISTS `pb_customer` (
   `name` varchar(30) NOT NULL COMMENT '客户名',
   `created` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='客户信息' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='客户信息' AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `pb_customer`
+--
+
+INSERT INTO `pb_customer` (`id`, `no`, `name`, `created`) VALUES
+(2, '243546267894', '京东', 1448657651);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pb_customer_relation`
+--
+
+CREATE TABLE IF NOT EXISTS `pb_customer_relation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `good_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pb_exchange_rate`
+--
+
+CREATE TABLE IF NOT EXISTS `pb_exchange_rate` (
+  `date` date NOT NULL COMMENT '日期',
+  `src_id` int(11) NOT NULL COMMENT '货币ID',
+  `dest_id` int(11) NOT NULL COMMENT '货币ID'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='每日汇率';
 
 -- --------------------------------------------------------
 
@@ -95,7 +151,8 @@ CREATE TABLE IF NOT EXISTS `pb_customer` (
 
 CREATE TABLE IF NOT EXISTS `pb_globals` (
   `key` varchar(15) NOT NULL COMMENT '变量名',
-  `value` varchar(50) NOT NULL COMMENT '变量值'
+  `value` varchar(50) NOT NULL COMMENT '变量值',
+  `desc` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='统一变量';
 
 -- --------------------------------------------------------
@@ -123,7 +180,14 @@ CREATE TABLE IF NOT EXISTS `pb_goods` (
   `created` int(11) NOT NULL,
   `updated` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='产品基本信息' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='产品基本信息' AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `pb_goods`
+--
+
+INSERT INTO `pb_goods` (`id`, `brand_id`, `category_id`, `item_code`, `hscode`, `type`, `spec`, `trade_term`, `guarantee`, `img_dir`, `block`, `postal_tax`, `tariff`, `bar_code`, `special`, `created`, `updated`) VALUES
+(1, 1, 3, '1234567890', '', 'local', '', '', '', '', 0, 0, 0, '', '', 1448983242, 1448983242);
 
 -- --------------------------------------------------------
 
@@ -141,6 +205,13 @@ CREATE TABLE IF NOT EXISTS `pb_goods_cn` (
   `unit` varchar(10) NOT NULL COMMENT '销售单位',
   PRIMARY KEY (`good_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='产品描述类信息';
+
+--
+-- Dumping data for table `pb_goods_cn`
+--
+
+INSERT INTO `pb_goods_cn` (`good_id`, `name`, `desc`, `origin`, `export`, `ingredient`, `unit`) VALUES
+(1, '测试品1', '这是第一个测试品', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -249,26 +320,14 @@ CREATE TABLE IF NOT EXISTS `pb_supplier_cn` (
   `email` varchar(50) NOT NULL,
   `contacts` varchar(50) NOT NULL COMMENT '联系人',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='供货商' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='供货商' AUTO_INCREMENT=2 ;
 
 --
--- Table structure for table `pb_test`
+-- Dumping data for table `pb_supplier_cn`
 --
 
-CREATE TABLE IF NOT EXISTS `pb_test` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `test` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `pb_test`
---
-
-INSERT INTO `pb_test` (`id`, `test`) VALUES
-(1, 123);
+INSERT INTO `pb_supplier_cn` (`id`, `name`, `address`, `phone`, `email`, `contacts`) VALUES
+(1, '供货商A', '', '123-456-789', 'supplier@pbcc.ca', '');
 
 -- --------------------------------------------------------
 
