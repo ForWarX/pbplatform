@@ -7,17 +7,11 @@ class GoodsController extends RestController {
     public function basic() {
         $lang = $_POST["lang"];
         if ($lang == '') $lang = C("API_DEFAULT_LANG");
-        elseif (is_object($lang)) $lang = json_decode($lang, true);
+        elseif (strpos($lang, '[') !== false) $lang = json_decode($lang, true);
         $api = I("api");
         $db = "goods";
 
         $res = array('status'=>false);
-        $res['type'] = gettype($lang);
-        $res['data'] = $lang;
-        // 测试$lang
-        $res['type'] = gettype(json_decode($_POST["lang"], true));
-        $res['data'] = json_decode($_POST["lang"], true);
-        $this->_method = 'a';
         if ($this->_method == 'post') {
             switch ($api) {
                 case 'get':
@@ -32,15 +26,15 @@ class GoodsController extends RestController {
                     // 拼接数据表
                     $db3 = '__' . strtoupper($db) . '__';
                     if (is_array($lang)) {
-                        foreach($lang as $k=>$v) {
-                            $db2 = '__' . strtoupper($db . '_' . $lang) . '__';
+                        foreach($lang as $v) {
+                            $db2 = '__' . strtoupper($db . '_' . $v) . '__';
                             $Model = $Model->join('LEFT JOIN ' . $db2 . ' ON ' . $db3 . '.id=' . $db2 . '.good_id');
                         }
                     } else {
                         $db2 = '__' . strtoupper($db . '_' . $lang) . '__';
                         $Model = $Model->join('LEFT JOIN ' . $db2 . ' ON ' . $db3 . '.id=' . $db2 . '.good_id');
                     }
-                    // 获取数据
+                    // 获取数据`
                     if ($id != '') $Model = $Model->where("id=%d", $id);
                     $Model = $Model->order($order);
                     if ($page != '') $Model = $Model->page($page);
@@ -63,18 +57,55 @@ class GoodsController extends RestController {
                     }
                     break;
                 case 'add':
-                    $name = I("name");
-                    $desc = I("desc");
-                    if ($name == '') {
-                        $res['err'] = 'Require "name"';
+                    $Model = M($db);
+                    if ($Model->create()) {
+                        $good_id = $Model->add();
+                        if ($good_id > 0) {
+                            // 按语言添加文本数据
+                            if (is_array($lang)) {
+                                $db .= '_';
+                                $err = false;
+                                foreach($lang as $v) {
+                                    $db2 = $db . $v;
+                                    $Model = M($db2);
+                                    if ($Model->create()) {
+                                        $Model->good_id = $good_id;
+                                        if ($Model->add() > 0) {
+                                            $res['status'] = true;
+                                        } else {
+                                            $res['err'] = "[$db2]Add failed";
+                                            $err = true;
+                                            break;
+                                        }
+                                    } else {
+                                        $res['err'] = "[$db2]Cannot create data";
+                                        $err = true;
+                                        break;
+                                    }
+                                }
+                                if (!$err) {
+                                    $res['status'] = true;
+                                }
+                            } else {
+                                $db .= "_" . $lang;
+                                $Model = M($db);
+                                if ($Model->create()) {
+                                    $Model->good_id = $good_id;
+                                    if ($Model->add() > 0) {
+                                        $res['status'] = true;
+                                    } else {
+                                        $res['err'] = "[$db]Add failed";
+                                    }
+                                } else {
+                                    $res['err'] = "[$db]Cannot create data";
+                                }
+                            }
+                        }
+                        else {
+                            $res['err'] = "[$db]Add failed";
+                        }
                     } else {
-                        $Model = M($db);
-                        $data = array(
-                            "name" => $name,
-                            "desc" => $desc
-                        );
-                        if ($Model->add($data) > 0) $res['status'] = true;
-                        else $res['err'] = 'Add failed';
+                        $res['err'] = "[$db]Cannot create data";
                     }
                     break;
                 case 'delete':
