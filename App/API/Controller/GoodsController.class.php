@@ -26,9 +26,25 @@ class GoodsController extends RestController {
                     // 拼接数据表
                     $db3 = '__' . strtoupper($db) . '__';
                     if (is_array($lang)) {
+                        // 多语言表使用的字段名一样，所以要给字段设别名
+                        // 设置要获取的字段
+                        $field = $Model->getDbFields();
+                        $sql = "";
+                        foreach ($field as $f) {
+                            if ($sql == "") $sql = $f;
+                            else $sql .= "," . $f;
+                        }
+                        // 拼接数据表
                         foreach($lang as $v) {
                             $db2 = '__' . strtoupper($db . '_' . $v) . '__';
                             $Model = $Model->join('LEFT JOIN ' . $db2 . ' ON ' . $db3 . '.id=' . $db2 . '.good_id');
+                            // 设置要获取的字段
+                            $field = M($db . '_' . $v)->getDbFields();
+                            foreach ($field as $f) {
+                                $f = $f . " as " . $f . "_" . $v;
+                                if ($sql == "") $sql = $f;
+                                else $sql .= "," . $f;
+                            }
                         }
                     } else {
                         $db2 = '__' . strtoupper($db . '_' . $lang) . '__';

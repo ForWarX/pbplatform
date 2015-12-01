@@ -81,7 +81,9 @@ class TestController extends Controller {
     }
 
     public function test() {
-        $data = json_encode(array("cn", "en"));
-        echo is_array(json_decode($data));
+        $Model = M("goods_cn");
+        $data = $Model->getDbFields();
+        header("Content-type: text/html; charset=utf-8");
+        print_r($data);
     }
 }
