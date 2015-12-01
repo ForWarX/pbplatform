@@ -12,23 +12,22 @@
   //height: 300px;
   //border-radius: 3px 3px 3px 3px;
   //background-image: url();
-  }
-
-.img-responsive 
-{
-　　display: inline-block;
-　　height: auto;
-　　max-width: 0%;
-}
+      }
 </style>
+<script type="text/javascript">
+function buttongo()
+{
+  window.location.href='https://www.google.ca';
+}
+</script>
 </head>
 <body>
-<!--图片默认-->
+<!--图片默认
   <div class="bs-docs-example bs-docs-example-images">
             <img class="img-rounded" data-src="holder.js/140x140" alt="169x136" style="width: 169px; height: 136px;" src="img/polarbearlogo.jpg">
-  </div>
+  </div>-->
 <!--主体-->
-<form>
+<form id="iframe0">
     <div class="control-group">
       <label id="username" for="inputusername" class="control-label">{$lang.index_username}</label>
         <div class="controls">
@@ -45,15 +44,10 @@
       <div class="controls">
         <label class="checkbox">
           <input id="remeberme" type="checkbox">{$lang.index_remeberme}
-        </label><br>
-        <button id="loginbutton" class="btn" type="submit">{$lang.index_login}</button>
+      </label><br>
+          <button id="loginbutton" class="btn" type="submit" onclick="buttongo()">{$lang.index_login}</button>
       </div>
     </div>
 </form>
-
 </body>
-
-
-
-
 </html>

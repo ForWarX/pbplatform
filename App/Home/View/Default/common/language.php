@@ -12,7 +12,6 @@ function language(){
 }
 
 language();
-
 <!---->
 /* {$lang.login}*/
 

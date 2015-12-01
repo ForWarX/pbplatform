@@ -23,3 +23,4 @@ $result = $db->query_exec($query_user);
 $num_results=$result->num_rows;
 ?>
 
+_post

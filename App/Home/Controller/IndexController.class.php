@@ -14,7 +14,7 @@ class IndexController extends Controller {
     }
     
     public function login() {
-        echo "string";
+
         $this->display();
     }
 	
