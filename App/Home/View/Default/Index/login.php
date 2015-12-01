@@ -1,12 +1,25 @@
 <?php
-
-require_once("wamp/wwww/pbplatform/Home/Index/login.html");
-
-print $_GET['username']; print '<br>';
+require_once("");
 
 $username=$_REQUEST['username'];
 $password=$_REQUEST['password'];
-$remeberme=$_REQUEST['remeberme'];
 
+if($username=="" or $password=="")
+{
+	echo "用户名或者密码不正确";
 
+}
+else
+{
+	
+}
+
+session_start();
+$_SESSION['s_username']=$username;
+$query_user="select * from pb_user where username = '$username' and password = '$password'";
+
+$db=new mysql();
+$result = $db->query_exec($query_user);
+$num_results=$result->num_rows;
 ?>
+

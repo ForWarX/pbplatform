@@ -13,6 +13,10 @@ class IndexController extends Controller {
         $this->display();
     }
     
+    public function login() {
+        echo "string";
+        $this->display();
+    }
 	
 	public function show() {
         $this->display();
