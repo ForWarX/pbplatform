@@ -4,5 +4,6 @@ return array(
 
     // API相关配置
     "API_URL"               => "http://localhost/pbplatform/",
-    "API_DEFAULT_LANG"      => "cn"
+    "API_DEFAULT_LANG"      => "cn",
+    "API_ALL_LANG"          => array("cn")
 );

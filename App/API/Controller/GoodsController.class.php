@@ -42,64 +42,29 @@ class GoodsController extends RestController {
                     $res['data'] = $data;
                     break;
                 case 'update':
-                    $id = I("id");
-                    $name = I("name");
-                    $desc = I("desc");
-                    if ($id == '') {
-                        $res['err'] = 'Require "id"';
+                    $Model = M($db);
+                    if ($Model->create()) {
+                        $Model->updated = time();
+                        if ($Model->save() !== false) {
+                            $res['status'] = true;
+                        }
+                        else {
+                            $res['err'] = "[$db]Add failed";
+                        }
                     } else {
-                        $Model = M($db);
-                        $data = array();
-                        if ($name != '') $data['name'] = $name;
-                        if ($desc != '') $data['desc'] = $desc;
-                        if ($Model->where("id=%d", $id)->save($data) !== false) $res['status'] = true;
-                        else $res['err'] = 'Update failed';
+                        $res['err'] = "[$db]Cannot create data";
                     }
                     break;
                 case 'add':
                     $Model = M($db);
                     if ($Model->create()) {
+                        $time = time();
+                        $Model->created = $time;
+                        $Model->updated = $time;
                         $good_id = $Model->add();
                         if ($good_id > 0) {
-                            // 按语言添加文本数据
-                            if (is_array($lang)) {
-                                $db .= '_';
-                                $err = false;
-                                foreach($lang as $v) {
-                                    $db2 = $db . $v;
-                                    $Model = M($db2);
-                                    if ($Model->create()) {
-                                        $Model->good_id = $good_id;
-                                        if ($Model->add() > 0) {
-                                            $res['status'] = true;
-                                        } else {
-                                            $res['err'] = "[$db2]Add failed";
-                                            $err = true;
-                                            break;
-                                        }
-                                    } else {
-                                        $res['err'] = "[$db2]Cannot create data";
-                                        $err = true;
-                                        break;
-                                    }
-                                }
-                                if (!$err) {
-                                    $res['status'] = true;
-                                }
-                            } else {
-                                $db .= "_" . $lang;
-                                $Model = M($db);
-                                if ($Model->create()) {
-                                    $Model->good_id = $good_id;
-                                    if ($Model->add() > 0) {
-                                        $res['status'] = true;
-                                    } else {
-                                        $res['err'] = "[$db]Add failed";
-                                    }
-                                } else {
-                                    $res['err'] = "[$db]Cannot create data";
-                                }
-                            }
+                            $res['status'] = true;
+                            $res['good_id'] = $good_id;
                         }
                         else {
                             $res['err'] = "[$db]Add failed";
@@ -114,7 +79,41 @@ class GoodsController extends RestController {
                         $res['err'] = 'Require "id"';
                     } else {
                         $Model = M($db);
+                        // 获取产品特殊属性
+                        $special = $Model->where("id=%d", $id)->select();
+                        $special = $special[0]['special'];
+                        // 删除产品
                         $Model->where("id=%d", $id)->delete();
+                        // 删除产品描述信息和特殊属性
+                        $all_lang = C("API_ALL_LANG");
+                        foreach($all_lang as $lang) {
+                            $Model = M($db . '_' . $lang);
+                            $Model->where("good_id=%d", $id)->delete();
+                            $Model = M('special_' . $special . '_' . $lang);
+                            $Model->where("good_id=%d", $id)->delete();
+                        }
+                        // 删除箱规
+                        $Model = M("carton_spec");
+                        $Model->where("good_id=%d", $id)->delete();
+                        // 删除客户
+                        $Model = M("customer_relation");
+                        $Model->where("good_id=%d", $id)->delete();
+                        // 删除标签
+                        $Model = M("label");
+                        $Model->where("good_id=%d", $id)->delete();
+                        // 删除包装
+                        $Model = M("package_relation");
+                        $Model->where("good_id=%d", $id)->delete();
+                        // 删除采购信息
+                        $Model = M("purchase");
+                        $Model->where("good_id=%d", $id)->delete();
+                        // 删除备案
+                        $Model = M("record");
+                        $Model->where("good_id=%d", $id)->delete();
+                        // 删除运输信息
+                        $Model = M("transport");
+                        $Model->where("good_id=%d", $id)->delete();
+
                         $res['status'] = true;
                     }
                     break;

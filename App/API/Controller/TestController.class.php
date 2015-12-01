@@ -21,9 +21,13 @@ class TestController extends Controller {
         if ($type == 'add') {
             // API参数
             $data = array(
-                "name" => "供货商A",
-                "phone" => "123-456-789",
-                "email" => "supplier@pbcc.ca",
+                "brand_id" => 1,
+                "category_id" => 3,
+                "item_code" => "1234567890",
+                "hs_code" => "0987654321",
+                "type" => "local",
+                "name" => "测试品1",
+                "desc" => "这是第一个测试品",
                 "lang" => "cn",
                 "api" => "add"
             );
