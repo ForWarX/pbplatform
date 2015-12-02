@@ -2,112 +2,55 @@
 <?php
 require_once( "App/Home/View/Default/common/head-style.html" );
 ?>
-<head></head>
-<!--body-->
-<body id="iframe11" STYLE="background-color: transparent">
-<!--表格-->
-<table class="table table-condensed table-hover"  border="0">
+<body id="iframe11" STYLE="background-color:transparent">
+<table class="table table-condensed table-hover"  border="1">
   <thead>
     <tr>
       <th></th>
-      <th>图片</th>
-      <th>产品货号</th>
-      <th>品牌</th>
-      <th>产品名称</th>
-      <th>产品描述</th>
-      <th>配料</th>
-      <th>保质期</th>
-      <th>销售单位</th>
-      <th>产地</th>
-      <th>商品类型</th>
-      <th>品类</th>
-      <th>HSCODE</th>
-      <th>规格</th>
-      <th>版规</th>
-      <th>箱规</th>
-      <th>税则号</th>
-      <th>行邮税</th>
-      <th>关税</th>
-      <th>条形码</th>
-      <th>贸易条款</th>
+      <th>名称</th>
+      <th>描述</th>
+      <th></th>
+      <th>名称</th>
+      <th>描述</th>  
     </tr>
   </thead>
-<tbody>
-<?php foreach ($variable as $key) { ?>
-  <tr>
-    <td><input type="checkbox" id="button" class="span0"></td>
-    <td><image id="Button0" class="span0"></td>
-    <td><input type="text" id="Button1" class="span1"></td>
-    <td><input type="text" id="Button2" class="span1" ></td>
-    <td><input type="text" id="Button3" class="span1"></td>
-    <td><input type="textarea" id="Button4" class="span1"></td>
-    <td><input type="textarea" id="Button5" class="span1"></td>
-    <td><input type="text" id="Button6" class="span1"></td>
-    <td><input type="text" id="Button7" class="span1"></td>
-    <td><input type="text" id="Button9" class="span1"></td>
-     <td>
-      <form id="Button8">
-        <select>
-          <option></option>
-          <option>跨境</option>
-          <option>一般贸易</option>
-          <option>本地</option>
-          <option>全部</option>
-        </select>
-     </form></td>
-    <td><input type="text" id="Button10" class="span1"></td>
-    <td><input type="text" id="Button11" class="span2"></td>
-    <td><input type="text" id="Button12" class="span1"></td>
-    <td><input type="text" id="Button13" class="span1"></td>
-    <td><input type="text" id="Button12" class="span1"></td>
-    <td><input type="text" id="Button13" class="span1"></td>
-    <td><input type="text" id="Button14" class="span1"></td>
-    <td><input type="text" id="Button15" class="span1"></td>
-    <td><input type="text" id="Button16" class="span2"></td>
-    <td>
-      <form id="Button17">
-        <select>
-          <option></option>
-          <option>FOB</option>
-          <option>CF</option>
-        </select>
-       </form>
-    </td>
-</tr>  
-<?php } ?>  
-  </tbody>
+  <tbody>
+    <tr>
+      <td><input type="checkbox" id="brand0" class="span0"></td>
+      <td><image type="textarea" id="Button1" class="brand1"></td>
+      <td><input type="text" id="brand2" class="span1"></td>
+      <td><input type="checkbox" id="brand3" class="span0"></td>
+      <td><image type="textarea" id="brand4" class="brand1"></td>
+      <td><input type="text" id="brand5" class="span1"></td>
+    </tr>  
+  <!--页码-->
+  <form>
+    <div class="btn-group">
+      <button data-toggle="dropdown" class="btn dropdown-toggle">显示16个
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#">显示26个</a></li>
+        <li><a href="#">显示36个</a></li>
+      </ul>
+    </div><!-- /input-append -->
+  </form>
+  <!--分页条-->
+  <div class="pagination pagination-right">
+    <ul> 
+      <li><a href="#"><<</a></li>
+      <li><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">>></a></li>
+    </ul>
+  </div>
+
+
+
+  </tbody> 
 </table>
-<!--表格下方功能条-->
-    <div class="row-fluid show-grid">
-    <div class="span6">
-        <!--显示页面数量-->
-        <form>
-          <div class="btn-group">
-            <button data-toggle="dropdown" class="btn dropdown-toggle">显示15个
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li><a href="#">显示25个</a></li>
-              <li><a href="#">显示35个</a></li>
-            </ul>
-          </div><!-- /input-append -->
-        </form>
-    </div>
-    <div class="span6">
-      <!--分页条-->
-      <div class="pagination pagination-right">
-        <ul> 
-          <li><a href="#"><<</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">>></a></li>
-        </ul>
-      </div>
-      </div>
+</body>
 
-</div>
-
- </body>     
 </html>
