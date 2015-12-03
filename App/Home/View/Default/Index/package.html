@@ -2,57 +2,51 @@
 <?php
 require_once( "App/Home/View/Default/common/head-style.html" );
 ?>
-<head>
-<style>
- body{
- 	font-size:45px;
- 	float:middle;
- 	margin:0px 800px;
-    width: 90%;
-
- }
-</style>
-</head>
-<body id="iframe2" STYLE="background-color:transparent" class="text-center">
+<body id="iframe3" STYLE="background-color:transparent" class="text-center">
+<h1>包装</h1>
 	<div class="container" style="background-color:; width:15%; height:52%;">
 		<div class="row-fluid show-grid">
-				<table class="table table-condensed table-hover" border="0">
-					<tbody>
-						<?php foreach ($variable as $key){ ?>
-							<tr>
-								<td><input type="checkbox" id="p" class="span0"></td>
-								<td>描述<input type="text" id="p1" class="span0" placeholder="单件或大中小包装等"><td>
-							</tr><br>
-							<tr>
-								<td><input type="checkbox" id="p" class="span0"></td>
-								<td>净重<input type="text" id="p2" class="span1">kg</td>
-							</tr><br>
-							<tr>
-								<td><input type="checkbox" id="p" class="span0"></td>
-								<td>毛重<input type="text" id="p3" class="span1">kg</td>
-							</tr><br>
+			<table class="table table-condensed table-hover" border="0">
+				<tbody>
+					<tr>
+						<td><input type="checkbox" id="pro" class="span0"></td>
+						<td>描述<input type="text" id="pro1" placeholder="单件或大中小包装等"><td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" id="pro" class="span0"></td>
+						<td>净重<input type="text" id="p2">kg</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" id="pro" class="span0"></td>
+						<td>毛重<input type="text" id="pro3">kg</td>
+					</tr>
 
-							<tr>
-								<td><input type="checkbox" id="p" class="span0"></td>
-								<td>长 <input type="text" id="p4" class="span1">cm</td>
-							</tr><br>
-							<tr>
-								<td><input type="checkbox" id="p" class="span0"></td>
-								<td>宽 <input type="text" id="p5" class="span1">cm</td>
-							</tr><br>
-							<tr>
-								<td><input type="checkbox" id="p" class="span0"></td>
-								<td>高 <input type="text" id="p4" class="span1">cm</td>
-							</tr><br>
-							<tr>
-								<td><input type="checkbox" id="p" class="span0"></td>
-								<td>数量<input type="text" id="p5" class="span1" placeholder="一包装袋有多少件"></td>
-							</tr><br>
-							
-						<?php} ?> 
-					</tbody>
-				</table>
-				<button>确定</button>
-	</div>
+					<tr>
+						<td><input type="checkbox" id="pro" class="span0"></td>
+						<td>长 <input type="text" id="pro4">cm</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" id="pro" class="span0"></td>
+						<td>宽 <input type="text" id="pro5">cm</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" id="pro" class="span0"></td>
+						<td>高 <input type="text" id="pro4">cm</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" id="pro" class="span0"></td>
+						<td>数量<input type="text" id="pro5" placeholder="一包装袋有多少件"></td>
+					</tr>
+				    <tr>
+					  <td><input type="checkbox"></td>
+					  <td>全选</td>       
+					</tr>
+					
+						
+				</tbody>
+			</table>
+			
+</div>
+</div>
 </body>
 </html>
