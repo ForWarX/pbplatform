@@ -14,8 +14,10 @@ class CurrencyController extends RestController {
                 case 'get':
                     $res['status'] = true;
                     $id = I("id");
+                    $code = I("code");
                     $Model = M($db);
                     if ($id == '') $data = $Model->select();
+                    elseif ($code != "") $data = $Model->where("code='%s'", $code)->select();
                     else $data = $Model->where("id=%d", $id)->select();
                     $res['data'] = $data;
                     break;
@@ -56,6 +58,82 @@ class CurrencyController extends RestController {
                     } else {
                         $Model = M($db);
                         $Model->where("id=%d", $id)->delete();
+                        $res['status'] = true;
+                    }
+                    break;
+                default:
+                    $res['err'] = "Undefined api";
+            }
+        } else {
+            $res['err'] = "Unknown method";
+        }
+
+        // 返回结果
+        $this->response($res, "json");
+    }
+
+    public function exchange() {
+        $api = I("api");
+        $db = "exchange_rate";
+
+        $res = array('status'=>false);
+        if ($this->_method == 'post') {
+            switch ($api) {
+                case 'get':
+                    $res['status'] = true;
+                    $src = I("src");
+                    $dest = I("dest");
+                    $Model = M($db);
+                    if ($src != '' && $dest != '') $data = $Model->where("src=%d and dest=%d", $src, $dest)->select();
+                    else $data = $Model->select();
+                    $res['data'] = $data;
+                    break;
+                case 'update':
+                    $src = I("src");
+                    $dest = I("dest");
+                    $rate = I("rate");
+                    if ($src == '' || $dest == '' || $rate) {
+                        $res['err'] = 'Require "src", "dest" and "rate"';
+                    } else {
+                        $Model = M($db);
+                        $date = I("date") == "" ? date("Y-m-d") : I("date");
+                        $data = array(
+                            "rate" => $rate,
+                            "date" => $date
+                        );
+                        if ($Model->where("src=%d and dest=%d", $src, $dest)->save($data) !== false) $res['status'] = true;
+                        else $res['err'] = "Update failed";
+                    }
+                    break;
+                case 'add':
+                    $src = I("src");
+                    $dest = I("dest");
+                    $rate = I("rate");
+                    if ($src == '' || $dest == '' || $rate) {
+                        $res['err'] = 'Require "src", "dest" and "rate"';
+                    } else {
+                        $Model = M($db);
+                        $date = I("date") == "" ? date("Y-m-d") : I("date");
+                        $data = array(
+                            "src" => $src,
+                            "dest" => $dest,
+                            "rate" => $rate,
+                            "date" => $date
+                        );
+                        if ($Model->add($data) > 0) $res['status'] = true;
+                        else $res['err'] = 'Add failed';
+                    }
+                    break;
+                case 'delete':
+                    $src = I("src");
+                    $dest = I("dest");
+                    if ($src == '' && $dest == '') {
+                        $res['err'] = 'Require "src" and/or "dest"';
+                    } else {
+                        $Model = M($db);
+                        if ($src != '' && $dest != '') $Model->where("src=%d and dest=%d", $src, $dest)->delete();
+                        elseif ($src != '') $Model->where("src=%d", $src)->delete();
+                        else $Model->where("dest=%d", $dest)->delete();
                         $res['status'] = true;
                     }
                     break;
