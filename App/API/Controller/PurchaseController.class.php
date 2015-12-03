@@ -1,12 +1,12 @@
 <?php
 namespace API\Controller;
 use Think\Controller\RestController;
-class CartonController extends RestController {
+class PurchaseController extends RestController {
     protected $allowType = array('json'); // REST允许请求的资源类型列表
 
     public function basic() {
         $api = I("api");
-        $db = "carton_spec";
+        $db = "purchase";
 
         $res = array('status'=>false);
         if ($this->_method == 'post') {
@@ -28,6 +28,7 @@ class CartonController extends RestController {
                     } else {
                         $Model = M($db);
                         if ($Model->create()) {
+                            $Model->updated = time();
                             if ($Model->save() !== false) $res['status'] = true;
                             else $res['err'] = 'Update failed';
                         } else {
@@ -36,12 +37,14 @@ class CartonController extends RestController {
                     }
                     break;
                 case 'add':
-                    $good_id = I("good_id");
-                    if ($good_id == '') {
-                        $res['err'] = 'Require "good_id"';
+                    if (I("good_id") == '' || I("supplier_id") == '') {
+                        $res['err'] = 'Require "good_id" and "supplier_id"';
                     } else {
                         $Model = M($db);
                         if ($Model->create()) {
+                            $time = time();
+                            $Model->created = $time;
+                            $Model->updated = $time;
                             if ($Model->add() > 0) $res['status'] = true;
                             else $res['err'] = 'Add failed';
                         } else {

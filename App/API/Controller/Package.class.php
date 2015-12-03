@@ -17,7 +17,7 @@ class PackageController extends RestController {
                     $good_id = I("good_id");
                     $Model = M($db);
                     if ($id != '') $data = $Model->where("id=%d", $id)->select();
-                    elseif ($good_id != '') $data = $Model->where("good_id='%s'", $good_id)->select();
+                    elseif ($good_id != '') $data = $Model->where("good_id=%d", $good_id)->select();
                     else $data = $Model->select();
                     $res['data'] = $data;
                     break;
