@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2015 at 11:45 AM
+-- Generation Time: Dec 03, 2015 at 04:23 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.3.15
 
@@ -53,6 +53,7 @@ CREATE TABLE IF NOT EXISTS `pb_carton_spec` (
   `height` float NOT NULL COMMENT 'cm',
   `width` float NOT NULL COMMENT 'cm',
   `num` int(11) NOT NULL,
+  `desc` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='箱规' AUTO_INCREMENT=1 ;
 
@@ -139,8 +140,9 @@ CREATE TABLE IF NOT EXISTS `pb_customer_relation` (
 
 CREATE TABLE IF NOT EXISTS `pb_exchange_rate` (
   `date` date NOT NULL COMMENT '日期',
-  `src_id` int(11) NOT NULL COMMENT '货币ID',
-  `dest_id` int(11) NOT NULL COMMENT '货币ID'
+  `src` varchar(5) NOT NULL COMMENT '货币代码',
+  `dest` varchar(5) NOT NULL COMMENT '货币代码',
+  `rate` float NOT NULL COMMENT 'src兑dest'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='每日汇率';
 
 -- --------------------------------------------------------
@@ -234,6 +236,7 @@ CREATE TABLE IF NOT EXISTS `pb_label` (
 
 CREATE TABLE IF NOT EXISTS `pb_package` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `good_id` int(11) NOT NULL,
   `nw` float NOT NULL COMMENT '净重（kg）',
   `gw` float NOT NULL COMMENT '毛重（kg）',
   `length` float NOT NULL COMMENT 'cm',
@@ -247,19 +250,6 @@ CREATE TABLE IF NOT EXISTS `pb_package` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pb_package_relation`
---
-
-CREATE TABLE IF NOT EXISTS `pb_package_relation` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `good_id` int(11) NOT NULL,
-  `package_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='包装关联' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `pb_purchase`
 --
 
@@ -268,7 +258,7 @@ CREATE TABLE IF NOT EXISTS `pb_purchase` (
   `good_id` int(11) NOT NULL,
   `supplier_id` int(11) NOT NULL,
   `price` float NOT NULL,
-  `currency_id` int(11) NOT NULL,
+  `currency` varchar(5) NOT NULL COMMENT '货币代码',
   `created` int(11) NOT NULL,
   `updated` int(11) NOT NULL,
   PRIMARY KEY (`id`)
