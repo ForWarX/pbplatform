@@ -1,6 +1,8 @@
-    public function api_request($api=null, $post_data=array("api"=>"get"), $method="basic") {
-        if ($api == null) return;
+<?php
 
+
+    public function api_brand($api=null, $post_data=array("api"=>"get","api"=>"id","api"=>"name","api"=>"desc"), $method="basic") {
+        if ($api == null) return;
         $api_url = C("API_URL");
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $api_url . "API/$api/$method");
@@ -13,3 +15,6 @@
         curl_close($curl);
         return json_decode($data, true);
     }
+
+
+    ?>
