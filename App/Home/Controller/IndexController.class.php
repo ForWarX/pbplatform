@@ -29,18 +29,35 @@ class IndexController extends Controller {
     public function brand(){
         if (IS_POST) {
             $data = I("post.");
-            $data['api'] = "add";
+            /*
+            $_POST = array(
+                "id"   => 3,
+                "name" => "???",
+                "desc" => "???",
+                "api"  => "update"
+            );*/
             $result = api_request("Brand", $data);
             if ($result['status']) {
                 $this->success("添加成功", "brand.html");
             } else {
-                $this->error("添加出错");
+                $this->error($result['err']);
             }
             exit();
         }
 
         $result = api_request("Brand");
-        $this->assign("brands", $result);
+/*
+        $result = array(
+            "status" => true,
+            "data" => array(
+                0 => array("id"=>1, "name"=>"SISU", "desc"=>"..."),
+                1 => array(....),
+                2 => array("id"=>3, "name"=>"Nike", "desc"=>"...")
+            )
+        );
+*/
+        $this->assign("brands", $result['data']);
+        $this->assign("result", $result);
         $this->display();
     }
 

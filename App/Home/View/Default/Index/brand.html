@@ -1,28 +1,84 @@
 <html>
-<?php
-require_once( "App/Home/View/Default/common/head-style.html" );
-?>
 <body>
-<form action="" method="post">
-  <table class="table table-condensed table-hover"  border="1">
-    <thead>
-      <tr>
-        <th></th>
-        <th>品牌名</th>
-        <th>描述</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php foreach($brands as $brand) { ?>
+<?php
+require_once( "App/Home/View/Default/common/head-style.html" )
+//require_once( "App/Home/View/Default/common/head.html" );
+?>
+<div>
+    <form action="" method="post">
+      <table class="table table-condensed" border="1">
         <tr>
-          <td><input type="checkbox" id="brand0" class="span0"></td>
-          <td><input type="text" id="Button1"></td>
-          <td><input type="textarea" id="brand2"></td>
+          <td>品牌名称<input type="text" id="add_brand" name="name"></td>
+          <td>描述<input type="textarea" id="add_desc" name="desc"></td>
+          <td><button class="btn btn-default">添加</button></td>
+          <input type="hidden" name="api" value="add">
         </tr>
-      <?php } ?>
-    </tbody>
-    </table>
+      </table>
+    </form>
+  </div>
+<div>
+<table class="table table-condensed table-hover"  border="1">
+  <thead>
+    <tr>
+      <!--<th></th>-->
+      <th>品牌名称</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach($brands as $brand) { ?>
+      <tr data-id="<?php echo $brand['id']; ?>">
+        <!--<td><input type="checkbox" id="brand0" class="span0"></td>-->
+        <td><input type="text" id="Button1" value="<?php echo $brand['name']; ?>"></td>
+        <td><input type="textarea" id="brand2" value="<?php echo $brand['desc']; ?>"></td>
+        <td>
+           <button onclick="updateBrand($(this));">更新</button><button onclick="deleteBrand($(this));">删除</button>
+        </td>
+      </tr>
+    <?php } ?>
+  </tbody>
+</table>
+<script type="text/javascript">
+  function updateBrand(e) {
+    var tr = e.parent().parent();
+    var id = tr.data("id");
+    var name = tr.find("#Button1").val();
+    var desc = tr.find("#brand2").val();
+    $("#update_id").val(id);
+    $("#update_name").val(name);
+    $("#update_desc").val(desc);
+    $("#update").submit();
+  }
+  function deleteBrand(e) {
+    var tr = e.parent().parent();
+    var id = tr.data("id");
+    $("#delete_id").val(id);
+    $("#delete").submit();
+  }
+</script>
+
+ <!--更新-->
+<form action="" method="post" id="update">
+  <input type="hidden" name="id" id="update_id">
+  <input type="hidden" name="name" id="update_name">
+  <input type="hidden" name="desc" id="update_desc">
+  <input type="hidden" name="api" value="update">
 </form>
-<button class="btn btn-default">提交</button>
+<!--删除-->
+<form action="" method="post" id="delete">
+  <input type="hidden" name="id" id="delete_id">
+  <input type="hidden" name="api" value="delete">
+</form>
+</div>
+<?php
+require_once( "App/Home/View/Default/common/footer.html" )
+?>
+
+
+</div>
+<?php
+require_once( "App/Home/View/Default/common/footer.html" )
+?>
+
 </body>
 </html>
