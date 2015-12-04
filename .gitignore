@@ -49,3 +49,4 @@ Temporary Items
 .idea/.name
 .idea/encodings.xml
 App/Runtime/
+App/Common/Conf/config.php

@@ -1,8 +1,9 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
+require_once('App/Home/Controller/API/api.php'); 
 class IndexController extends Controller {
-//require_once('api.php'); 
+
 
     public function index(){
         $this->display();
@@ -22,6 +23,14 @@ class IndexController extends Controller {
 	
 	public function show() {
         $this->display();
+    }
+
+    //api
+    public function brand(){
+        $result = api_request("Brand");
+        $this->assign("brands", $result);
+        $this->display();
+
     }
 
 

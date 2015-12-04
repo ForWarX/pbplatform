@@ -1,7 +1,7 @@
 <?php
 
 
-    public function api_brand($api=null, $post_data=array("api"=>"get","api"=>"id","api"=>"name","api"=>"desc"), $method="basic") {
+    function api_request($api=null, $post_data=array("api"=>"get"), $method="basic") {
         if ($api == null) return;
         $api_url = C("API_URL");
         $curl = curl_init();
