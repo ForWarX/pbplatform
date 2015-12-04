@@ -2,7 +2,7 @@
 <?php
 require_once( "App/Home/View/Default/common/head-style.html" );
 ?>
-
+<body>
 <form action="" method="post">
   <table class="table table-condensed table-hover"  border="1">
     <thead>
@@ -16,17 +16,13 @@ require_once( "App/Home/View/Default/common/head-style.html" );
       <?php foreach($brands as $brand) { ?>
         <tr>
           <td><input type="checkbox" id="brand0" class="span0"></td>
-          <td><input type="textarea" id="Button1" class="brand1"></td>
-          <td><input type="text" id="brand2" class="span1"></td>
+          <td><input type="text" id="Button1"></td>
+          <td><input type="textarea" id="brand2"></td>
         </tr>
       <?php } ?>
     </tbody>
-
-  <button class="btn btn-default">提交</button>
+    </table>
 </form>
-
-  </tbody> 
-</table>
+<button class="btn btn-default">提交</button>
 </body>
-
 </html>

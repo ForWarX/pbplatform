@@ -1,6 +1,4 @@
 <?php
-
-
     function api_request($api=null, $post_data=array("api"=>"get"), $method="basic") {
         if ($api == null) return;
 

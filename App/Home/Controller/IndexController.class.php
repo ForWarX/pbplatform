@@ -27,10 +27,21 @@ class IndexController extends Controller {
 
     //api
     public function brand(){
+        if (IS_POST) {
+            $data = I("post.");
+            $data['api'] = "add";
+            $result = api_request("Brand", $data);
+            if ($result['status']) {
+                $this->success("添加成功", "brand.html");
+            } else {
+                $this->error("添加出错");
+            }
+            exit();
+        }
+
         $result = api_request("Brand");
         $this->assign("brands", $result);
         $this->display();
-
     }
 
 
