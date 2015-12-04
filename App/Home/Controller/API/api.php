@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 <?php
 
 
     function api_request($api=null, $post_data=array("api"=>"get"), $method="basic") {
-=======
-    public function api_request($api=null, $post_data=array("api"=>"get"), $method="basic") {
->>>>>>> fceb6773ebf851b129662f59449180617b81354a
         if ($api == null) return;
 
         $api_url = C("API_URL");
