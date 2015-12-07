@@ -1,7 +1,7 @@
 
 <html>
 <?php
-require_once( "App/Home/View/Default/common/head-style.html" );
+require_once( "App/Home/View/Default/common/head-style.html");
 ?>
 <head>
 <style>
@@ -11,8 +11,6 @@ require_once( "App/Home/View/Default/common/head-style.html" );
   width: 90%;
   float: middle;
   background-color:#FC6E51;
-  //height: 300px;
-  //border-radius: 3px 3px 3px 3px;
   //background-image: url();
       }
 </style>
@@ -20,9 +18,9 @@ require_once( "App/Home/View/Default/common/head-style.html" );
 <body>
 <h1>Polar Bear</h1>
 <!--图片默认-->
-  <div class="bs-docs-example bs-docs-example-images">
-      <img style="width: 200px; height: 200px;" src="App/Home/View/Default/Index/pb.jpg">
-  </div><br>
+<div class="bs-docs-example bs-docs-example-images">
+  <img style="width: 200px; height: 200px;" src="App/Home/View/Default/Index/image/pb.jpg" class="img-responsive img-rounded" alt="Responsive image">
+</div><br>
 <!--主体-->
 <form id="iframe0">
     <div class="control-group">
@@ -40,7 +38,7 @@ require_once( "App/Home/View/Default/common/head-style.html" );
         <label class="checkbox">
         <input id="remeberme" type="checkbox">{$lang.index_remeberme}<br>
     <div class="control-group">
-        <button id="loginbutton" type="button" onclick="Window.open(App/Home/View/Default/Index/index.html)">111{$lang.index_login}</button>
+        <button id="loginbutton" type="button" onclick="Window.open(App/Home/View/Default/Index/index.html)">{$lang.index_login}1111</button>
       </div>
     </div>
 </form>

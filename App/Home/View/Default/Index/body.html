@@ -1,14 +1,15 @@
 <html>
 <!--body-->
-<?php
-require_once( "App/Home/View/Default/common/head-style.html" );
-?>
 <body id="iframe1" STYLE="background-color: transparent">
+<?php
+require_once( "App/Home/View/Default/common/head-style.html");
+?>
 <!--表格-->
-<table class="table table-condensed table-hover"  border="1">
+<table class="table table-condensed table-hover"  border="0">
   <thead>
-    <tr>
-      <th></th>
+  
+    <tr data-id="<?php echo $brand['id']; ?>">
+   
       <th>货号</th> 
       <th>图片</th>
       <th>品牌</th> 
@@ -24,26 +25,39 @@ require_once( "App/Home/View/Default/common/head-style.html" );
     </tr>
   </thead>
 <tbody>
-<?php foreach ($variable as $key) { ?>
-  <tr>
-    <td><input type="checkbox" id="f0" class="span0"></td>
-    <td><image type="text" id="f1" class="span0" value="图片"></td>
-    <td><input type="text" id="f2" class="span1"></td>
-    <td><input type="text" id="f3" class="span1" ></td>
-    <td><input type="text" id="f4" class="span1"></td>
-    <td><input type="text" id="f5" class="span1"></td>
-    <td><input type="text" id="f6" class="span1"></td>
-    <td><input type="text" id="f7" class="span1"></td>
-    <td><input type="text" id="f8" class="span1"></td>
-    <td><input type="text" id="f9" class="span1"></td>
-    <td><button type="button" id="f10">查看<i class="icon-check"></i></button></td>
-    <td><button type="button" id="f11">编辑<i class=" icon-adjust"></i></button></td>
-    <td><button type="button" id="f12">查询<i class="icon-search"></i></button></td>
-    <td><button type="button" id="f13">删除<i class="icon-trash"></i></button></td>
-</tr>   
-<?php } ?>  
+    <?php foreach($goods as $body) { ?>
+      <tr>
+        <td><input type="text" id="body_number" class="span1" value="<?php echo $body['item_code']; ?>"></td>
+        <td><image type="text" id="body_img" class="span0" value="<?php echo $body['']; ?>"></td>
+        <td><input type="text" id="body_brand" class="span1" value="<?php echo $body['']; ?>"></td>
+        <td><input type="text" id="body_name" class="span1" value="<?php echo $body['']; ?>"></td>
+        <td><input type="text" id="body_spec" class="span1" value="<?php echo $body['spec']; ?>"></td>
+        <td><input type="text" id="body_price" class="span1" value="<?php echo $body['']; ?>"></td>
+        <td><input type="text" id="body_quality" class="span1" value="<?php echo $body['']; ?>"></td>
+        <td><input type="text" id="body_scan" class="span1" value="<?php echo $body['bar_code']; ?>"></td>
+        <td><button type="button" id="body_add" onclick="updateBody($(this));">编辑</button></td>
+        <td><button type="button" id="body_delete" onclick="deleteBody($(this));">>删除</button></td>
+      </tr>   
+  <?php } ?> 
   </tbody>   
 </table>
+<!--add-->
+<form action="" method="post">
+  <table class="table table-condensed" border="1">
+    <tr>
+      <td>货号<input type="text" id="body_number_add" class="span1"></td>
+      <td>图片<image type="text" id="body_img_add" class="span1" value="图片"></td>
+      <td>品牌<input type="text" id="body_brand_add" class="span1"></td>
+      <td>产品名称<input type="text" id="body_name_add" class="span1"></td>
+      <td>规格<input type="text" id="body_spec_add" class="span1"></td>
+      <td>价格<input type="text" id="body_price_add" class="span1"></td>
+      <td>库存<input type="text" id="body_quality_add" class="span1"></td>
+      <td>条形码<input type="text" id="body_scan_add" class="span1"></td>
+      <td><button type="button" id="body">增加</button></td>
+      <input type="hidden" name="api" value="add">
+    </tr>     
+  </table>
+</form>
 <!--表格下方功能条-->
     <div class="row-fluid show-grid">
     <div class="span6">
@@ -61,20 +75,75 @@ require_once( "App/Home/View/Default/common/head-style.html" );
         </form>
     </div>
     <div class="span6">
-      <!--分页条-->
-      <div class="pagination pagination-right">
-        <ul> 
-          <li><a href="#"><<</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">>></a></li>
-        </ul>
-      </div>
-      </div>
-
+  <!--分页条-->
+  <nav>
+    <ul class="pagination">
+      <li>
+        <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        </a>
+        </li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li>
+        <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>
+<!--api-->
+<script type="text/javascript">
+  function updateBody(e) {
+    var tr = e.parent().parent();
+    var id = tr.data("id");
+    var number = tr.find("#body_number").val();
+    var img = tr.find("#body_img").val();
+    var brand = tr.find("#body_brand").val();
+    var name = tr.find("#body_name").val();
+    var spec = tr.find("#body_spec").val();
+    var price = tr.find("#body_price").val();
+    var quality = tr.find("#body_quality").val();
+    var scan = tr.find("#body_scan").val();
+    $("#update_id").val(id);
+    $("#update_number").val(item_code);
+    $("#update_img").val(img_dir);
+    $("#update_brand").val();
+    $("#update_name").val();
+    $("#update_spec").val(spec);
+    $("#update_price").val();
+    $("#update_quality").val();
+    $("#update_scan").val(bar_code);
+    $("#update").submit();
+  }
+  function deleteBody(e) {
+    var tr = e.parent().parent();
+    var id = tr.data("id");
+    $("#delete_id").val(id);
+    $("#delete").submit();
+  }
 
- </body>     
+</script>
+ <!--更新-->
+<form action="" method="post" id="update">
+  <input type="hidden" name="id" id="update_id">
+  <input type="hidden" name="body_number" id="update_number">
+  <input type="hidden" name="body_img" id="update_img">
+  <input type="hidden" name="body_brand" id="update_brand">
+  <input type="hidden" name="body_name" id="update_name">
+  <input type="hidden" name="body_spec" id="update_spec">
+  <input type="hidden" name="body_price" id="update_price">
+  <input type="hidden" name="body_quality" id="update_scan">
+  <input type="hidden" name="api" value="update">
+</form>
+<!--删除-->
+<form action="" method="post" id="delete">
+  <input type="hidden" name="id" id="delete_id">
+  <input type="hidden" name="api" value="delete">
+</form>
+</body>     
 </html>

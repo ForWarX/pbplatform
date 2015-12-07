@@ -44,7 +44,6 @@ class IndexController extends Controller {
             }
             exit();
         }
-
         $result = api_request("Brand");
 /*
         $result = array(
@@ -60,6 +59,56 @@ class IndexController extends Controller {
         $this->assign("result", $result);
         $this->display();
     }
+/*
+  public function brand(){
+        if (IS_POST) {
+            $data = I("post.");
+            $data['api'] = "add";
+            $result = api_request("Brand", $data);
+            if ($result['status']) {
+                $this->success("添加成功", "brand.html");
+            } else {
+                $this->error("添加出错");
+            }
+            exit();
+        }
 
+        $result = api_request("Brand");
+        $this->assign("brands", $result);
+        $this->display();
+    }
+
+public function brand(){
+        /*$data = array(
+            "name" => "Nike",
+            "api" => "add"
+        );
+        $result = api_request("Brand");
+        $this->assign("brands", $result);
+        //$this->display();
+        header("Content-type: text/html; charset=utf-8");
+        print_r($result);
+    }
+ */
+
+
+/*
+public function body(){
+        if (IS_POST) {
+            $data = I("post.");
+            $result = api_request("body", $data);
+            if ($result['status']) {
+                $this->success("添加成功", "body.html");
+            } else {
+                $this->error($result['err']);
+            }
+            exit();
+        }
+        $result = api_request("Goods");
+        $this->assign("goods", $result['data']);
+        $this->assign("result", $result);
+        $this->display();
+    }*/
 
 }
+
