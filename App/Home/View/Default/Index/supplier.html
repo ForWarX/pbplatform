@@ -1,0 +1,34 @@
+<html>
+<body id="iframe8">
+<?php
+require_once( "App/Home/View/Default/common/head-style.html" );
+require_once( "App/Home/View/Default/common/head.html" );
+?>
+<table class="table table-condensed table-hover"  border="0">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>地址</th>
+        <th>电话</th>
+        <th>邮件</th>
+        <th>联系人</th>
+    </tr>
+    </thead>
+    <?php {?>
+    <tr>
+        <td><input type="text" id="s_name" class="span1"></td>
+        <td><input type="text" id="s_address" class="span1"></td>
+        <td><input type="text" id="s_tel" class="span1"></td>
+        <td><input type="email" id="s_email" class="span1"></td>
+        <td><input type="text" id="s_contactor" class="span1"></td>
+    </tr>
+    <?php }?>
+</table>
+<!--footer-->
+</div>
+<?php
+    require_once( "App/Home/View/Default/common/footer.html" )
+?>
+</div>
+</body>
+</html>

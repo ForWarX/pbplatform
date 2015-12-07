@@ -1,0 +1,32 @@
+<html>
+<body id="iframe8">
+<?php
+require_once( "App/Home/View/Default/common/head-style.html" );
+require_once( "App/Home/View/Default/common/head.html" );
+?>
+<table class="table table-condensed table-hover"  border="0">
+    <thead>
+    <tr>
+        <th>口岸</th>
+        <th>类别</th>
+        <th>备案图</th>
+
+    </tr>
+    </thead>
+    <?php {?>
+    <tr>
+        <td><input type="text" id="backup_port" class="span1"></td>
+        <td><input type="text" id="backup_cat" class="span1"></td>
+        <td><image type="image" id="backup_image" class="span1"></td>
+
+    </tr>
+    <?php }?>
+</table>
+<!--footer-->
+</div>
+<?php
+    require_once( "App/Home/View/Default/common/footer.html" )
+?>
+</div>
+</body>
+</html>
