@@ -18,8 +18,8 @@ require_once("App/Home/View/Default/common/head.html");
       <?php foreach($brands as $brand) { ?>
         <tr data-id="<?php echo $brand['id']; ?>">
           <!--<td><input type="checkbox" id="brand0" class="span0"></td>-->
-          <td><input type="text" id="Button1" value="<?php echo $brand['name']; ?>"></td>
-          <td><input type="textarea" id="brand2" value="<?php echo $brand['desc']; ?>"></td>
+          <td><input type="text" id="brand_name" value="<?php echo $brand['name']; ?>"></td>
+          <td><input type="textarea" id="brand_desc" value="<?php echo $brand['desc']; ?>"></td>
           <td>
              <button onclick="updateBrand($(this));">编辑</button>
              <button onclick="deleteBrand($(this));">删除</button>
@@ -46,8 +46,8 @@ require_once("App/Home/View/Default/common/head.html");
   function updateBrand(e) {
     var tr = e.parent().parent();
     var id = tr.data("id");
-    var name = tr.find("#Button1").val();
-    var desc = tr.find("#brand2").val();
+    var name = tr.find("#brand_name").val();
+    var desc = tr.find("#brand_desc").val();
     $("#update_id").val(id);
     $("#update_name").val(name);
     $("#update_desc").val(desc);

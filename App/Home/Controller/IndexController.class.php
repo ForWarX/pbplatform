@@ -95,20 +95,20 @@ public function brand(){
     public function category(){
         if (IS_POST){
             $data=I("post.");
-            $result=api_reqyest("Category",$data);
+            $result=api_request("Category",$data);
             if ($result['status']){
-                $this->success("添加成功","category.html");
+                $this->success("成功","category.html");
             } else {
                 $this->error($result['err']);
             }
             exit();
         }
         $result = api_request("Category");
-        }
 
         $this->assign("cats", $result['data']);
         $this->assign("result", $result);
         $this->display();
+        }
 
 
 

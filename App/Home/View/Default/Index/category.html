@@ -13,10 +13,10 @@ require_once("App/Home/View/Default/common/head.html");
 	</thead>
 	<tbody>
 		<?php foreach($cats as $category) { ?>
-			<tr data-id="<?php echo $category['id']; ?>">
-				<td><input type="text" id="cat_name" value="<？php echo $category['name']?>"></td>
-				<td><button>编辑</button></td>
-			    <td><button>删除</button></td>
+			<tr data-id="<?php echo $category['id'];?>">
+				<td><input type="text" id="cat_name"  value="<?php echo $category['name'];?>"></td>
+				<td><button onclick="update_cat($(this));">编辑</button></td>
+			    <td><button onclick="delete_cat($(this));">删除</button></td>
 			</tr>
 		<?php } ?>
 	</tbody>
@@ -27,12 +27,40 @@ require_once("App/Home/View/Default/common/head.html");
     <table class="table table-condensed" border="0">
       <tr>
         <td>品类<input type="text" id="add_cat" name="name"></td>
-        <td><button>添加</button></td>
+        <td><button class="btn btn-default">添加</button></td>
         <input type="hidden" name="api" value="add">
       </tr>
     </table>
   </form>
 </div>
+<!--api-->
+<script>
+	function delete_cat(e){
+		var tr = e.parent().parent();
+		var id = tr.data("id");
+		$("#delete_id").val(id);
+		$("#delete").submit();
+	}
+	function update_cat(e){
+		var tr = e.parent().parent();
+		var id = tr.data("id");
+		var name = tr.find("#cat_name").val();
+		$("#update_id").val(id);
+		$("#update_name").val(name);
+		$("#update").submit();
+	}
+</script>
+<!--update-->
+<form action="" method="post" id="update">
+	<input type="hidden" name="id" id="update_id">
+	<input type="hidden" name="name" id="update_name">
+	<input type="hidden" name="api" value="update">
+</form>
+<!--delete-->
+<form action="" method="post" id="delete">
+	<input type="hidden" name="id" id="delete_id">
+	<input type="hidden" name="api" value="delete">
+</form>
 <!--footer-->
 </div>
 	<?php
