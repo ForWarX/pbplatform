@@ -3,22 +3,19 @@
 require_once( "App/Home/View/Default/common/head-style.html" );
 ?>
 <!--body-->
-<body id="iframe9" style="margin:1%;">
+<body id="iframe9">
 	<?php
 		require_once( "App/Home/View/Default/common/head.html" );
 	?>
-	<div class="container" style="background-color:; width:100%; height:82%;">
+	<div class="container" style="background-color:; width:90%; height:85%;">
 		<iframe src="/pbplatform/Home/Index/body.html" id="iframe1" name="b1"
-			height="80%" width="100%" scrolling="no" frameborder="0" allowtransparency="true" 
+			height="98%" width="100%" scrolling="auto" frameborder="0" allowtransparency="true" 
 		    marginwidth="0" marginheight="0" hspace="0" vspace="0" 
 		    onload="style.width=this.contentWindow.document.all.formfra.offsetWidth;style.height=this.contentWindow.document.all.formfra.offsetHeight">
 		</iframe>
 	</div>
-	<!--footer-->
-	<div class="container" style="background-color:; width:95%; height:5%;"></div>
-	<?php
-		require_once("App/Home/View/Default/common/footer.html" );
-	?>
-	</div>
+<?php
+	require_once("App/Home/View/Default/common/footer.html" );
+?> 
 </body>
 </html>

@@ -1,0 +1,43 @@
+<html>
+<body>
+<?php
+require_once("App/Home/View/Default/common/head-style.html");
+require_once("App/Home/View/Default/common/head.html");
+?>
+<div>
+<table class="table table-condensed table-hover"  border="0">
+	<thead>
+	  <tr>
+	    <td>品类</td>
+	  </tr>
+	</thead>
+	<tbody>
+		<?php foreach($cats as $category) { ?>
+			<tr data-id="<?php echo $category['id']; ?>">
+				<td><input type="text" id="cat_name" value="<？php echo $category['name']?>"></td>
+				<td><button>编辑</button></td>
+			    <td><button>删除</button></td>
+			</tr>
+		<?php } ?>
+	</tbody>
+</table>
+<!--add-->
+<div>
+  <form action="" method="post">
+    <table class="table table-condensed" border="0">
+      <tr>
+        <td>品类<input type="text" id="add_cat" name="name"></td>
+        <td><button>添加</button></td>
+        <input type="hidden" name="api" value="add">
+      </tr>
+    </table>
+  </form>
+</div>
+<!--footer-->
+</div>
+	<?php
+		require_once( "App/Home/View/Default/common/footer.html" )
+	?>
+</div>
+</body>
+</html>
