@@ -78,11 +78,6 @@ class IndexController extends Controller {
         $this->display();
     }
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> origin/master
 public function brand(){
         /*$data = array(
             "name" => "Nike",
@@ -95,7 +90,6 @@ public function brand(){
         print_r($result);
     }
  */
-<<<<<<< HEAD
 
 
 /*
@@ -115,8 +109,6 @@ public function body(){
         $this->assign("result", $result);
         $this->display();
     }*/
-=======
->>>>>>> origin/master
 
 }
 
