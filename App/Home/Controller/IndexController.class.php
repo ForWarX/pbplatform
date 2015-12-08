@@ -4,14 +4,9 @@ use Think\Controller;
 require_once('App/Home/Controller/API/api.php'); 
 class IndexController extends Controller {
 
-
     public function index(){
         $this->display();
     }
-	public function language(){
-        $this->display();
-    }
-
 	public function body(){
         $this->display();
     }
@@ -24,6 +19,11 @@ class IndexController extends Controller {
 	public function show() {
         $this->display();
     }
+    //语言包
+    public function lang(){
+        $this->display();
+    }
+
 
     //api
     public function brand(){
