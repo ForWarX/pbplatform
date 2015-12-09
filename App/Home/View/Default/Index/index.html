@@ -2,45 +2,49 @@
 <html>
 <?php
 require_once( "App/Home/View/Default/common/head-style.html");
+
 ?>
 <head>
 <style>
   body{
-  margin-left: 45%;
+  margin-left: 40%;
   margin-top: 10%;
   width: 90%;
   float: middle;
   background-color: ;
   //background-image: url();
       }
+    p{
+        margin-left: 25%;
+        margin-top: 0%;
+    }
 </style>
 </head>
 <body>
+<p><a href="?l=zh-cn">简体中文</a> | <a href="?l=en-us">English</a></p>
 <h1>Polar Bear</h1>
-<!--图片默认-->
+<!--图片默认
 <div class="bs-docs-example bs-docs-example-images">
   <img  src="Home/Index/image/polarbearlogo.jpg"  >
-</div><br>
+</div><br>-->
 <!--主体-->
 <form id="iframe0">
     <div class="control-group">
-     {$lang.index_username}<input id="username">
+        {$lang.INDEX_USERNAME}<input id="username">
       </div>
     </div>
     <div class="control-group">
-      {$lang.index_userpassword}</label><input type="password" id="inputPassword">
-        </div>
+        {$lang.INDEX_PASSWORD}<input id="password">
     </div>
+    </div>
+
     <div class="control-group">
         <label class="checkbox">
-        <input id="remeberme" type="checkbox">{$lang.index_remeberme}记住我<br>
+        <input id="remeberme" type="checkbox">{$lang.INDEX_REMEBERME}<br>
     <div class="control-group">
-        <button id="loginbutton" type="button"><a href="http://localhost/pbplatform/Home/Index/firstpage.html">{$lang.index_login}确定</button>
+        <button id="loginbutton" type="button"><a href="http://localhost/pbplatform/Home/Index/firstpage.html">{$lang.INDEX_LOGIN}</button>
       </div>
     </div>
 </form>
-<p><a href="?l=zh-cn">简体中文</a> | <a href="?l=en-us">English</a></p>
-
-
 </body>
 </html>
