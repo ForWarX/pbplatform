@@ -8,19 +8,71 @@ class IndexController extends Controller {
     //L()获得全部语言,L(username)获得指定语言
         $this->assign('lang',L());//把语言值传进页面
         $this->display();
-
     }
-	public function body(){
+    public function productview() {
+    $this->assign('lang',L());
+    $this->display();
+}
+    public function body(){
+        $this->assign('lang',L());
         $this->display();
     }
-	public function show() {
+    public function productall(){
+        $this->assign('lang',L());
         $this->display();
     }
-    //语言包
-    public function lang(){
+    public function product_add(){
+        $this->assign('lang',L());
         $this->display();
     }
-
+    public function backup_info() {
+        $this->assign('lang',L());
+        $this->display();
+    }
+    public function customer_info(){
+        $this->assign('lang',L());
+        $this->display();
+    }
+    public function export(){
+        $this->assign('lang',L());
+        $this->display();
+    }
+    public function import(){
+        $this->assign('lang',L());
+        $this->display();
+    }
+    public function package() {
+        $this->assign('lang',L());
+        $this->display();
+    }
+    public function picture(){
+        $this->assign('lang',L());
+        $this->display();
+    }
+    public function price(){
+        $this->assign('lang',L());
+        $this->display();
+    }
+    public function product(){
+        $this->assign('lang',L());
+        $this->display();
+    }
+    public function purchase() {
+        $this->assign('lang',L());
+        $this->display();
+    }
+    public function special(){
+        $this->assign('lang',L());
+        $this->display();
+    }
+    public function supplier(){
+        $this->assign('lang',L());
+        $this->display();
+    }
+    public function transport(){
+        $this->assign('lang',L());
+        $this->display();
+    }
 
     //api
     public function brand(){

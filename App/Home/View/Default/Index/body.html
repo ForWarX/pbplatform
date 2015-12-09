@@ -1,11 +1,9 @@
 <html>
 <!--body-->
-
 <?php
 require_once( "App/Home/View/Default/common/head-style.html");
 ?>
 <!--表格-->
-
 <table class="table table-condensed table-hover"  border="0">
   <thead>
     <tr>
@@ -17,6 +15,7 @@ require_once( "App/Home/View/Default/common/head-style.html");
       <th>价格</th>
       <th>库存</th>
       <th>条形码</th>
+      <th></th>
       <th></th>
       <th></th>
     </tr>
@@ -31,23 +30,24 @@ require_once( "App/Home/View/Default/common/head-style.html");
     <td><input type="text" id="body_price" class="span1"></td>
     <td><input type="text" id="body_quality" class="span1"></td>
     <td><input type="text" id="body_scan" class="span1"></td>
-    <td><button type="button"><a href="http://localhost/pbplatform/Home/Index/productoverview.html">查看</a></button></td>
-    <td><button type="button">删除</button></td>
+    <td><button type="button"><a href="http://localhost/pbplatform/Home/Index/productall.html"><?php echo $lang["BODY_VIEW"]; ?></a></button></td>
+    <td><button type="button"><a href="http://localhost/pbplatform/Home/Index/product_add.html"><?php echo $lang["BODY_CREATE"]; ?></a></button></td>
+    <td><button type="button"><?php echo $lang["BODY_DELETE"]; ?></button></td>
   </tr> 
 <?php }?>  
- </table> 
+ </table>
 <!--表格下方功能条-->
 <div class="row-fluid show-grid">
   <div class="span6">
       <!--显示页面数量-->
       <form>
         <div class="btn-group">
-          <button data-toggle="dropdown" class="btn dropdown-toggle">显示15个
+          <button data-toggle="dropdown" class="btn dropdown-toggle"><?php echo $lang["BODY_SHOW15"]; ?>
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
-            <li><a href="#">显示25个</a></li>
-            <li><a href="#">显示35个</a></li>
+            <li><a href="#"><?php echo $lang["BODY_SHOW25"]; ?></a></li>
+            <li><a href="#"><?php echo $lang["BODY_SHOW35"]; ?></a></li>
           </ul>
         </div><!-- /input-append -->
       </form>
