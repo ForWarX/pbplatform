@@ -24,7 +24,7 @@ require_once( "App/Home/View/Default/common/head.html" );
             <td><input type="text" id="s_contact" class="span0" value="<?php echo $supplier['contacts'];?>"></td>
             <td><button onclick="update_sup($(this));"><?php echo $lang["UPDATE"]; ?></button></td>
             <td><button onclick="delete_sup($(this)); "><?php echo $lang["DELETE"]; ?></button></td>
-            </tr>
+        </tr>
         <?php }?>
     </tbody>
 </table>
@@ -55,17 +55,17 @@ require_once( "App/Home/View/Default/common/head.html" );
     function update_sup(e){
         var tr = e.parent().parent();
         var id = tr.data("id");
-        var sname = tr.find("#s_name").val();
-        var ad = tr.find("#s_address").val();
-        var sphone = tr.find("#s_tel").val();
-        var semail = tr.find("#s_email").val();
-        var scontact = tr.find("#s_contact").val();
+        var name = tr.find("#s_name").val();
+        var address = tr.find("#s_address").val();
+        var phone = tr.find("#s_tel").val();
+        var email = tr.find("#s_email").val();
+        var contacts = tr.find("#s_contact").val();
         $("#update_id").val(id);
-        $("#update_name").val(sname);
-        $("#update_ad").val(ad);
-        $("#update_sphone").val(sphone);
-        $("#update_semail").val(semail);
-        $("#update_scontact").val(scontact);
+        $("#update_name").val(name);
+        $("#update_address").val(address);
+        $("#update_phone").val(phone);
+        $("#update_email").val(email);
+        $("#update_contacts").val(contacts);
         $("#update").submit();
     }
 </script>
@@ -74,9 +74,9 @@ require_once( "App/Home/View/Default/common/head.html" );
     <input type="hidden" name="id" id="update_id">
     <input type="hidden" name="name" id="update_name">
     <input type="hidden" name="address" id="update_address">
-    <input type="hidden" name="tel" id="update_tel">
+    <input type="hidden" name="phone" id="update_phone">
     <input type="hidden" name="email" id="update_email">
-    <input type="hidden" name="contact" id="update_contact">
+    <input type="hidden" name="contacts" id="update_contacts">
     <input type="hidden" name="api" value="update">
 </form>
 <!--delete-->
