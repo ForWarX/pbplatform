@@ -1,5 +1,19 @@
 <?php
 return array(
+
+    //public
+    'delete'=>'删除',
+    'add'=>'添加',
+    'view'=>'查看',
+    'update'=>'编辑',
+
+    'show15'=>'显示15',
+    'show25'=>'显示25',
+    'show35'=>'显示35',
+
+    'search'=>'搜索',
+
+    //index
     'index_username'=>'用户名',
     'index_password'=>'密码',
     'index_login'=>'登录',
@@ -7,12 +21,8 @@ return array(
     'index_logo'=>'加拿大极地熊集团',
 
     //body
-    'body_delete'=>'删除',
-    'body_create'=>'新建',
-    'body_view'=>'查看',
-    'body_show15'=>'显示15',
-    'body_show25'=>'显示25',
-    'body_show35'=>'显示35',
+
+
 
     //head
     'index_product'=>'产品',

@@ -10,72 +10,129 @@ class IndexController extends Controller {
         $this->display();
     }
     public function productview() {
-    $this->assign('lang',L());
-    $this->display();
+        ///获得语言变量信息
+        $this->assign('lang',L());
+        $this->display();
 }
     public function body(){
+        //获得语言变量信息
         $this->assign('lang',L());
         $this->display();
     }
     public function productall(){
+        //获得语言变量信息
         $this->assign('lang',L());
         $this->display();
     }
     public function product_add(){
+        //获得语言变量信息
         $this->assign('lang',L());
         $this->display();
     }
     public function backup_info() {
+        //获得语言变量信息
         $this->assign('lang',L());
         $this->display();
     }
     public function customer_info(){
+        //获得语言变量信息
         $this->assign('lang',L());
         $this->display();
     }
     public function export(){
+        //获得语言变量信息
         $this->assign('lang',L());
         $this->display();
     }
     public function import(){
+        //获得语言变量信息
         $this->assign('lang',L());
         $this->display();
     }
     public function package() {
+        //获得语言变量信息
         $this->assign('lang',L());
         $this->display();
     }
     public function picture(){
+        //获得语言变量信息
         $this->assign('lang',L());
         $this->display();
     }
     public function price(){
+        //获得语言变量信息
         $this->assign('lang',L());
         $this->display();
     }
     public function product(){
+        //获得语言变量信息
         $this->assign('lang',L());
         $this->display();
     }
     public function purchase() {
+        //获得语言变量信息
         $this->assign('lang',L());
         $this->display();
     }
     public function special(){
+        //获得语言变量信息
         $this->assign('lang',L());
         $this->display();
     }
-    public function supplier(){
+    public function logic(){
+        //获得语言变量信息
         $this->assign('lang',L());
         $this->display();
     }
     public function transport(){
+        //获得语言变量信息
         $this->assign('lang',L());
         $this->display();
     }
+    public function supplier(){
+        //获得语言变量信息
+        $this->assign('lang',L());
+       //api
+        if (IS_POST){
+            $data=I("post.");
+            $result=api_request("Supplier",$data);
+            if ($result['status']){
+                $this->success("成功","supplier.html");
+            } else {
+                $this->error($result['err']);
+            }
+            exit();
+        }
+        $result = api_request("Supplier");
 
-    //api
+        $this->assign("sup", $result['data']);
+        $this->assign("result", $result);
+        $this->display();
+    }
+    public function category(){
+        //获得语言变量信息
+        $this->assign('lang',L());
+        //api
+        if (IS_POST){
+            $data=I("post.");
+            $result=api_request("Category",$data);
+            if ($result['status']){
+                $this->success("成功","category.html");
+            } else {
+                $this->error($result['err']);
+            }
+            exit();
+        }
+        $result = api_request("Category");
+
+        $this->assign("cats", $result['data']);
+        $this->assign("result", $result);
+        $this->display();
+    }
     public function brand(){
+        //获得语言变量信息
+        $this->assign('lang',L());
+        //api
         if (IS_POST) {
             $data = I("post.");
             /*
@@ -127,37 +184,19 @@ class IndexController extends Controller {
         $this->display();
     }
 
-public function brand(){
-        /*$data = array(
-            "name" => "Nike",
-            "api" => "add"
-        );
-        $result = api_request("Brand");
-        $this->assign("brands", $result);
-        //$this->display();
-        header("Content-type: text/html; charset=utf-8");
-        print_r($result);
+    public function brand(){
+            /*$data = array(
+                "name" => "Nike",
+                "api" => "add"
+            );
+            $result = api_request("Brand");
+            $this->assign("brands", $result);
+            //$this->display();
+            header("Content-type: text/html; charset=utf-8");
+            print_r($result);
     }
  */
 
-
-    public function category(){
-        if (IS_POST){
-            $data=I("post.");
-            $result=api_request("Category",$data);
-            if ($result['status']){
-                $this->success("成功","category.html");
-            } else {
-                $this->error($result['err']);
-            }
-            exit();
-        }
-        $result = api_request("Category");
-
-        $this->assign("cats", $result['data']);
-        $this->assign("result", $result);
-        $this->display();
-        }
 
 
 

@@ -1,42 +1,48 @@
 <html>
 <head>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href=""></a>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="http://localhost/pbplatform/Home/Index/productview.html"><?php echo $lang["INDEX_PRODUCT"]; ?></a></li>
-        <li><a href="http://localhost/pbplatform/Home/Index/brand.html"><?php echo $lang["INDEX_BRAND"]; ?></a></li>
-        <li><a href="http://localhost/pbplatform/Home/Index/category.html"><?php echo $lang["INDEX_CAT"]; ?></a></li>
-        <li><a href="http://localhost/pbplatform/Home/Index/customer_info.html"><?php echo $lang["INDEX_CUSTOMERINFO"]; ?></a></li>
-        <li><a href="http://localhost/pbplatform/Home/Index/supplier.html" ><?php echo $lang["INDEX_SUPPLIER"]; ?></a></li>
-        <li><a href="http://localhost/pbplatform/Home/Index/purchase.html"><?php echo $lang["INDEX_PURCHASE"]; ?></a></li>
-        <li><a href="http://localhost/pbplatform/Home/Index/logic.html" ><?php echo $lang["INDEX_LOGIC"]; ?></a></li>
-        <li><a href="http://localhost/pbplatform/Home/Index/backup_info.html"><?php echo $lang["INDEX_BACKUP"]; ?></a></li>
-        <li><a href="http://localhost/pbplatform/Home/Index/import.html"><?php echo $lang["INDEX_IMPORT"]; ?></a></li>
-        <li><a href="http://localhost/pbplatform/Home/Index/export.html"><?php echo $lang["INDEX_EXPORT"]; ?></a></li>
-      </ul>
-      <div>
-      <form action="" class="navbar-search pull-left">
-        <input type="text" placeholder="搜索" class="search-query span2">
-        <a href="?l=cn-zh">中文|</a>
-        <a href="?l=en-us">English</a>
-      </form>
+<?php
+  require_once("App/Home/View/Default/common/head-style.html");
+?>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
       </div>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="http://localhost/pbplatform/Home/Index/productview.html"><?php echo $lang["INDEX_PRODUCT"]; ?></a></li>
+          <li><a href="http://localhost/pbplatform/Home/Index/brand.html"><?php echo $lang["INDEX_BRAND"]; ?></a></li>
+          <li><a href="http://localhost/pbplatform/Home/Index/category.html"><?php echo $lang["INDEX_CAT"]; ?></a></li>
+          <li><a href="http://localhost/pbplatform/Home/Index/customer_info.html"><?php echo $lang["INDEX_CUSTOMERINFO"]; ?></a></li>
+          <li><a href="http://localhost/pbplatform/Home/Index/supplier.html" ><?php echo $lang["INDEX_SUPPLIER"]; ?></a></li>
+          <li><a href="http://localhost/pbplatform/Home/Index/purchase.html"><?php echo $lang["INDEX_PURCHASE"]; ?></a></li>
+          <li><a href="http://localhost/pbplatform/Home/Index/logic.html"><?php echo $lang["INDEX_LOGIC"]; ?></a></li>
+          <li><a href="http://localhost/pbplatform/Home/Index/backup_info.html"><?php echo $lang["INDEX_BACKUP"]; ?></a></li>
+          <li><a href="http://localhost/pbplatform/Home/Index/import.html"><?php echo $lang["INDEX_IMPORT"]; ?></a></li>
+          <li><a href="http://localhost/pbplatform/Home/Index/export.html"><?php echo $lang["INDEX_EXPORT"]; ?></a></li>
+        </ul>
+        <div>
+        <form action="" class="navbar-search pull-left">
+          <input type="text" placeholder="<?php echo $lang["SEARCH"]; ?>" class="search-query span2">
+        </form>
+        </div>
+        <div>
+          <form action="" class="navbar-search pull-left">
+            <a href="?l=cn-zh">中文|</a>
+            <a href="?l=en-us">English</a>
+          </form>
+        </div>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 </head>
 </html>
-
 

@@ -1,5 +1,17 @@
 <?php
 return array(
+    //public
+    'delete'=>'Delete',
+    'add'=>'add',
+    'view'=>'View',
+    'update'=>'update',
+
+    'show15'=>'View15',
+    'show25'=>'View25',
+    'show35'=>'View35',
+
+    'search'=>'Search',
+
     //login
     'index_username'=>'Username',
     'index_password'=>'Password',
@@ -9,13 +21,8 @@ return array(
 
 
     //body
-    'body_delete'=>'Delete',
-    'body_create'=>'Create',
-    'body_view'=>'View',
-    'body_show15'=>'View15',
-    'body_show25'=>'View25',
-    'body_show35'=>'View35',
-    
+
+
     //head
     'index_product'=>'Product',
     'index_brand'=>'Brand',

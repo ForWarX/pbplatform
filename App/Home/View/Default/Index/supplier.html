@@ -5,7 +5,7 @@ require_once( "App/Home/View/Default/common/head-style.html" );
 require_once( "App/Home/View/Default/common/head.html" );
 ?>
 <table class="table table-condensed table-hover"  border="0">
-    <thead>
+<thead>
     <tr>
         <th>名称</th>
         <th>地址</th>
@@ -13,22 +13,76 @@ require_once( "App/Home/View/Default/common/head.html" );
         <th>邮件</th>
         <th>联系人</th>
     </tr>
-    </thead>
-    <?php {?>
-    <tr>
-        <td><input type="text" id="s_name" class="span1"></td>
-        <td><input type="text" id="s_address" class="span1"></td>
-        <td><input type="text" id="s_tel" class="span1"></td>
-        <td><input type="email" id="s_email" class="span1"></td>
-        <td><input type="text" id="s_contactor" class="span1"></td>
-    </tr>
-    <?php }?>
+</thead>
+    <tbody>
+    <?php foreach($sup as $supplier) {?>
+        <tr data-id="<?php echo $supplier['id'];?>">
+            <td><input type="text" id="s_name" class="span0" value="<?php echo $supplier['name'];?>"></td>
+            <td><input type="text" id="s_address" class="span0" value="<?php echo $supplier['address'];?>"></td>
+            <td><input type="text" id="s_tel" class="span0" value="<?php echo $supplier['phone'];?>"></td>
+            <td><input type="email" id="s_email" class="span0" value="<?php echo $supplier['email'];?>"></td>
+            <td><input type="text" id="s_contact" class="span0" value="<?php echo $supplier['contacts'];?>"></td>
+            <td><button onclick="update_sup($(this));"><?php echo $lang["UPDATE"]; ?></button></td>
+            <td><button onclick="delete_sup($(this)); "><?php echo $lang["DELETE"]; ?></button></td>
+            </tr>
+        <?php }?>
+    </tbody>
 </table>
-<!--footer-->
+<!--add-->
+<!--add-->
+<div>
+    <form action="" method="post">
+        <table class="table table-condensed" border="0">
+            <tr>
+                <td>名称<input type="text" id="add_s_name" name="name"></td>
+                <td>地址<input type="text" id="add_s_address" name="address"></td>
+                <td>电话<input type="text" id="add_s_tel" name="phone"></td>
+                <td>邮件<input type="text" id="add_s_email" name="email"></td>
+                <td>联系人<input type="text" id="add_s_contact" name="contacts"></td>
+                <td><button class="btn btn-default"><?php echo $lang["ADD"]; ?></button></td>
+                <input type="hidden" name="api" value="add">
+            </tr>
+        </table>
+    </form>
 </div>
-<?php
-    require_once( "App/Home/View/Default/common/footer.html" )
-?>
-</div>
+<script>
+    function delete_sup(e){
+        var tr = e.parent().parent();
+        var id = tr.data("id");
+        $("#delete_id").val(id);
+        $("#delete").submit();
+    }
+    function update_sup(e){
+        var tr = e.parent().parent();
+        var id = tr.data("id");
+        var sname = tr.find("#s_name").val();
+        var ad = tr.find("#s_address").val();
+        var sphone = tr.find("#s_tel").val();
+        var semail = tr.find("#s_email").val();
+        var scontact = tr.find("#s_contact").val();
+        $("#update_id").val(id);
+        $("#update_name").val(sname);
+        $("#update_ad").val(ad);
+        $("#update_sphone").val(sphone);
+        $("#update_semail").val(semail);
+        $("#update_scontact").val(scontact);
+        $("#update").submit();
+    }
+</script>
+<!--update-->
+<form action="" method="post" id="update">
+    <input type="hidden" name="id" id="update_id">
+    <input type="hidden" name="name" id="update_name">
+    <input type="hidden" name="address" id="update_address">
+    <input type="hidden" name="tel" id="update_tel">
+    <input type="hidden" name="email" id="update_email">
+    <input type="hidden" name="contact" id="update_contact">
+    <input type="hidden" name="api" value="update">
+</form>
+<!--delete-->
+<form action="" method="post" id="delete">
+    <input type="hidden" name="id" id="delete_id">
+    <input type="hidden" name="api" value="delete">
+</form>
 </body>
 </html>

@@ -30,9 +30,9 @@ require_once( "App/Home/View/Default/common/head-style.html");
     <td><input type="text" id="body_price" class="span1"></td>
     <td><input type="text" id="body_quality" class="span1"></td>
     <td><input type="text" id="body_scan" class="span1"></td>
-    <td><button type="button"><a href="http://localhost/pbplatform/Home/Index/productall.html"><?php echo $lang["BODY_VIEW"]; ?></a></button></td>
-    <td><button type="button"><a href="http://localhost/pbplatform/Home/Index/product_add.html"><?php echo $lang["BODY_CREATE"]; ?></a></button></td>
-    <td><button type="button"><?php echo $lang["BODY_DELETE"]; ?></button></td>
+    <td><button type="button"><a href="http://localhost/pbplatform/Home/Index/productall.html"><?php echo $lang["VIEW"]; ?></a></button></td>
+    <td><button type="button"><a href="http://localhost/pbplatform/Home/Index/product_add.html"><?php echo $lang["ADD"]; ?></a></button></td>
+    <td><button type="button"><?php echo $lang["DELETE"]; ?></button></td>
   </tr> 
 <?php }?>  
  </table>
@@ -42,12 +42,12 @@ require_once( "App/Home/View/Default/common/head-style.html");
       <!--显示页面数量-->
       <form>
         <div class="btn-group">
-          <button data-toggle="dropdown" class="btn dropdown-toggle"><?php echo $lang["BODY_SHOW15"]; ?>
+          <button data-toggle="dropdown" class="btn dropdown-toggle"><?php echo $lang["SHOW15"]; ?>
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
-            <li><a href="#"><?php echo $lang["BODY_SHOW25"]; ?></a></li>
-            <li><a href="#"><?php echo $lang["BODY_SHOW35"]; ?></a></li>
+            <li><a href="#"><?php echo $lang["SHOW25"]; ?></a></li>
+            <li><a href="#"><?php echo $lang["SHOW35"]; ?></a></li>
           </ul>
         </div><!-- /input-append -->
       </form>
@@ -65,7 +65,6 @@ require_once( "App/Home/View/Default/common/head-style.html");
       <li><a href="#">2</a></li>
       <li><a href="#">3</a></li>
       <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
       <li>
       <a href="#" aria-label="Next">
       <span aria-hidden="true">&raquo;</span>
