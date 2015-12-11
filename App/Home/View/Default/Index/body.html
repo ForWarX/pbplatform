@@ -1,77 +1,78 @@
 <html>
+<body>
 <!--body-->
 <?php
 require_once( "App/Home/View/Default/common/head-style.html");
 ?>
-<!--表格-->
-<table class="table table-condensed table-hover"  border="0">
-  <thead>
-    <tr>
-      <th>货号</th> 
-      <th>图片</th>
-      <th>品牌</th> 
-      <th>产品名称</th>
-      <th>规格</th>
-      <th>价格</th>
-      <th>库存</th>
-      <th>条形码</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-<?php {?>
-  <tr>
-    <td><input type="text" id="body_number" class="span1"></td>
-    <td><image type="text" id="body_img" class="span0"></td>
-    <td><input type="text" id="body_brand" class="span1"></td>
-    <td><input type="text" id="body_name" class="span1"></td>
-    <td><input type="text" id="body_spec" class="span1"></td>
-    <td><input type="text" id="body_price" class="span1"></td>
-    <td><input type="text" id="body_quality" class="span1"></td>
-    <td><input type="text" id="body_scan" class="span1"></td>
-    <td><button type="button"><a href="http://localhost/pbplatform/Home/Index/productall.html"><?php echo $lang["VIEW"]; ?></a></button></td>
-    <td><button type="button"><a href="http://localhost/pbplatform/Home/Index/product_add.html"><?php echo $lang["ADD"]; ?></a></button></td>
-    <td><button type="button"><?php echo $lang["DELETE"]; ?></button></td>
-  </tr> 
-<?php }?>  
- </table>
-<!--表格下方功能条-->
-<div class="row-fluid show-grid">
-  <div class="span6">
-      <!--显示页面数量-->
-      <form>
-        <div class="btn-group">
-          <button data-toggle="dropdown" class="btn dropdown-toggle"><?php echo $lang["SHOW15"]; ?>
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu">
-            <li><a href="#"><?php echo $lang["SHOW25"]; ?></a></li>
-            <li><a href="#"><?php echo $lang["SHOW35"]; ?></a></li>
-          </ul>
-        </div><!-- /input-append -->
-      </form>
-  </div>
-<div class="span6">
-<!--分页条-->
-<nav>
-  <ul class="pagination">
-    <li>
-      <a href="#" aria-label="Previous">
-      <span aria-hidden="true">&laquo;</span>
-      </a>
-      </li>
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li>
-      <a href="#" aria-label="Next">
-      <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
-</div>
+    <!--表格-->
+    <table class="table table-condensed table-hover"  border="0">
+      <thead>
+          <tr>
+            <th>货号</th>
+            <th>图片</th>
+            <th>品牌</th>
+            <th>产品名称</th>
+            <th>规格</th>
+            <th>价格</th>
+            <th>库存</th>
+            <th>条形码</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+      </thead>
+        <?php {?>
+          <tr>
+            <td><input type="text" id="body_number" class="span1"></td>
+            <td><image type="text" id="body_img" class="span0"></td>
+            <td><input type="text" id="body_brand" class="span1"></td>
+            <td><input type="text" id="body_name" class="span1"></td>
+            <td><input type="text" id="body_spec" class="span1"></td>
+            <td><input type="text" id="body_price" class="span1"></td>
+            <td><input type="text" id="body_quality" class="span1"></td>
+            <td><input type="text" id="body_scan" class="span1"></td>
+            <td><button type="button"><a href="http://localhost/pbplatform/Home/Index/productall.html"><?php echo $lang["VIEW"]; ?></a></button></td>
+            <td><button type="button"><a href="http://localhost/pbplatform/Home/Index/product_add.html"><?php echo $lang["ADD"]; ?></a></button></td>
+            <td><button type="button"><?php echo $lang["DELETE"]; ?></button></td>
+          </tr>
+        <?php }?>
+     </table>
+    <!--表格下方功能条-->
+    <div class="row-fluid show-grid">
+      <div class="span6">
+          <!--显示页面数量-->
+          <form>
+            <div class="btn-group">
+              <button data-toggle="dropdown" class="btn dropdown-toggle"><?php echo $lang["SHOW15"]; ?>
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="#"><?php echo $lang["SHOW25"]; ?></a></li>
+                <li><a href="#"><?php echo $lang["SHOW35"]; ?></a></li>
+              </ul>
+            </div><!-- /input-append -->
+          </form>
+      </div>
+    <div class="span6">
+    <!--分页条-->
+    <nav>
+      <ul class="pagination">
+        <li>
+          <a href="#" aria-label="Previous">
+             <span aria-hidden="true">&laquo;</span>
+          </a>
+          </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li>
+          <a href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    </div>
 </body>     
 </html>

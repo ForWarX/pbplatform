@@ -34,17 +34,17 @@ class IndexController extends Controller {
         $this->assign('lang',L());
         $this->display();
     }
-    public function customer_info(){
-        //获得语言变量信息
-        $this->assign('lang',L());
-        $this->display();
-    }
-    public function export(){
+ public function export(){
         //获得语言变量信息
         $this->assign('lang',L());
         $this->display();
     }
     public function import(){
+        //获得语言变量信息
+        $this->assign('lang',L());
+        $this->display();
+    }
+    public function carton(){
         //获得语言变量信息
         $this->assign('lang',L());
         $this->display();
@@ -89,6 +89,26 @@ class IndexController extends Controller {
         $this->assign('lang',L());
         $this->display();
     }
+    public function customer_info(){
+        //获得语言变量信息
+        $this->assign('lang',L());
+        //api
+        if (IS_POST){
+            $data=I("post.");
+            $result=api_request("Customer",$data);
+            if ($result['status']){
+                $this->success("成功","customer_info.html");
+            } else {
+                $this->error($result['err']);
+            }
+            exit();
+        }
+        $result = api_request("Customer");
+
+        $this->assign("cus", $result['data']);
+        $this->assign("result", $result);
+        $this->display();
+    }
     public function supplier(){
         //获得语言变量信息
         $this->assign('lang',L());
@@ -128,6 +148,7 @@ class IndexController extends Controller {
         $this->assign("cats", $result['data']);
         $this->assign("result", $result);
         $this->display();
+
     }
     public function brand(){
         //获得语言变量信息
@@ -196,6 +217,21 @@ class IndexController extends Controller {
             print_r($result);
     }
  */
+
+    //分页
+    public function page(){
+        $user = M('User'); // 实例化User对象
+        $count= $user->count();//显示总条数
+        $page=new Page($count,10);//10为每页分的条数
+        $show=$page->show();//显示每页的条数
+        $list=$user->order('date')->
+            limit($page->firstRow.','.$page->listRows)->select();
+        $this->assign('list',$list);
+        $this->assign('page',$show);
+        $this->display();
+        var_dump($show);
+    }
+
 
 
 

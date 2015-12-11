@@ -1,40 +1,82 @@
 <html>
-<?php
-require_once( "App/Home/View/Default/common/head-style.html" );
-?>
 <body id="iframe7">
+   <?php
+   require_once( "App/Home/View/Default/common/head-style.html" );
+   ?>
 <h1>特殊属性</h1>
 <p>-保健品属性</p>
-
-<table class="table table-condensed table-hover" border="0">
- <tr id="s0">
-	<td><input type="checkbox" class="span1">剂型<input type="text"></td>
- </tr>
-  <tr id="s1">
-	<td><input type="checkbox" class="span1">特点<input type="text"></td>
- </tr>
-  <tr id="s2">
-	<td><input type="checkbox" class="span1">推荐用量<input type="text"></td>
- </tr>
-  <tr id="s3">
-	<td><input type="checkbox" class="span1">注意事项<input type="text"></td>
- </tr>
-  <tr id="s4">
-	<td><input type="checkbox" class="span1">成分<input type="text"></td>
- </tr>
-  <tr id="s5">
-	<td><input type="checkbox" class="span1">储存方式<input type="text"></td>
- </tr>
-  <tr id="s6">
-	<td><input type="checkbox" class="span1">产地<input type="text"></td>
- </tr>
- <tr id="ps7">
-  <td><input type="checkbox" class="span1">全选</td> 
-  <td><button type="button">修改</a></button></td>
-</tr>
-
-
-</table>
+   <form class="form-inline">
+      <table class="table table-condensed table-hover" border="0">
+         <tr>
+            <div class="form-group">
+               <td>
+                 <input type="checkbox">
+                 <label for="jixing">剂型</label>
+                 <input type="text" class="form-control" id="jixing">
+               </td>
+            </div>
+         </tr>
+       <tr>
+         <div class="form-group">
+            <td>
+               <input type="checkbox">
+               <label for="tedian">特点</label>
+               <input type="text" class="form-control" id="tedian">
+            </td>
+         </div>
+       </tr>
+       <tr>
+          <div class="form-group">
+             <td>
+               <input type="checkbox">
+               <label for="yongliang">推荐用量</label>
+               <input type="text" class="form-control" id="yongliang">
+             </td>
+          </div>
+       </tr>
+       <tr>
+         <div class="form-group">
+            <td>
+              <input type="checkbox">
+              <label for="note">注意事项</label>
+              <input type="text" class="form-control" id="note">
+            </td>
+         </div>
+       </tr>
+       <tr>
+          <div class="form-group">
+           <td>
+              <input type="checkbox">
+              <label for="chengfen">成分</label>
+              <input type="text" class="form-control" id="chengfen">
+           </td>
+         </div>
+       </tr>
+       <tr>
+          <div class="form-group">
+             <td>
+                <input type="checkbox">
+                <label for="chucun">储存方式</label>
+                <input type="text" class="form-control" id="chucun">
+             </td>
+        </div>
+       </tr>
+       <tr>
+         <div class="form-group">
+            <td>
+             <input type="checkbox">
+             <label for="chandi">产地</label>
+             <input type="text" class="form-control" id="chandi">
+            </td>
+         </div>
+       </tr>
+       <tr>
+          <div class="form-group">
+            <td><input type="checkbox">全选</td>
+            <td><button type="button">修改</button></td>
+          </div>
+       </tr>
+      </table>
+   </form>
 </body>
-
 </html>

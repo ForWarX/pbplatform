@@ -35,6 +35,7 @@ return array(
     'index_backup'=>'备案信息',
     'index_import'=>'导入',
     'index_export'=>'导出',
+    'index_carton'=>'箱规',
 
 
 

@@ -1,21 +1,68 @@
 <html>
 <body id="iframe8">
-<?php
-require_once( "App/Home/View/Default/common/head-style.html" );
-require_once( "App/Home/View/Default/common/head.html" );
-?>
-<table class="table table-condensed table-hover"  border="0">
-    <thead>
-    <tr>
-        <th>客户名称</th>
-        <th>客户货号</th>
-    </tr>
-    </thead>
-    <?php {?>
-    <tr>
-        <td><input type="text" id="customer_name" class="span2"></td>
-        <td><input type="text" id="customer_product_no" class="span3"></td>
-    </tr>
-    <?php }?>
-</table>
+    <?php
+        require_once( "App/Home/View/Default/common/head-style.html" );
+        require_once( "App/Home/View/Default/common/head.html" );
+    ?>
+    <table class="table table-condensed table-hover"  border="0">
+        <thead>
+            <tr>
+                <th>客户名称</th>
+                <th>客户货号</th>
+            </tr>
+        </thead>
+        <?php foreach($cus as $customer) { ?>
+             <tr data-id="<?php echo $customer['id'];?>">
+                <td><input type="text" id="customer_name" class="span2"  value="<?php echo $customer['name'];?>"></td>
+                <td><input type="text" id="customer_no" class="span3"  value="<?php echo $customer['no'];?>"></td>
+                <td><button onclick="update_customer($(this));"><?php echo $lang["UPDATE"]; ?></button></td>
+                <td><button onclick="delete_customer($(this)); "><?php echo $lang["DELETE"]; ?></button></td>
+            </tr>
+        <?php }?>
+    </table>
+    <!--add-->
+    <div>
+        <form action="" method="post">
+            <table class="table table-condensed" border="0">
+                <tr>
+                    <td>客户名称<input type="text" id="add_customer" name="name"></td>
+                    <td>客户货号<input type="text" id="add_customer" name="no"></td>
+                    <td><button class="btn btn-default"><?php echo $lang["ADD"]; ?></button></td>
+                    <input type="hidden" name="api" value="add">
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script>
+        function update_customer(e){
+            var tr = e.parent().parent();
+            var id = tr.data("id");
+            var name = tr.find("#customer_name").val();
+            var no = tr.find("#customer_no").val();
+            $("#update_id").val(id);
+            $("#update_name").val(name);
+            $("#update_number").val(no);
+            $("#update").submit();
+
+        }
+        function delete_customer(e){
+            var tr = e.parent().parent();
+            var id = tr.data("id");
+            $("#delete_id").val(id);
+            $("#delete").submit();
+        }
+    </script>
+    <!--update-->
+    <form action="" method="post" id="update">
+        <input type="hidden" name="id" id="update_id">
+        <input type="hidden" name="name" id="update_name">
+        <input type="hidden" name="number" id="update_number">
+        <input type="hidden" name="api" value="update">
+    </form>
+    <!--delete-->
+    <form action="" method="post" id="delete">
+        <input type="hidden" name="id" id="delete_id">
+        <input type="hidden" name="api" value="delete">
+    </form>
+</body>
 </html>

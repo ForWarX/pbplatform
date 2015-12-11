@@ -1,66 +1,68 @@
 <html>
 <body>
-<?php
-require_once("App/Home/View/Default/common/head-style.html");
-require_once("App/Home/View/Default/common/head.html");
-?>
-<div>
-<table class="table table-condensed table-hover"  border="0">
-	<thead>
-	  <tr>
-	    <td>品类</td>
-	  </tr>
-	</thead>
-	<tbody>
-		<?php foreach($cats as $category) { ?>
-			<tr data-id="<?php echo $category['id'];?>">
-				<td><input type="text" id="cat_name"  value="<?php echo $category['name'];?>"></td>
-				<td><button onclick="update_cat($(this));"><?php echo $lang["UPDATE"]; ?></button></td>
-			    <td><button onclick="delete_cat($(this)); "><?php echo $lang["DELETE"]; ?></button></td>
-			</tr>
-		<?php } ?>
-	</tbody>
-</table>
-<!--add-->
-<div>
-  <form action="" method="post">
-    <table class="table table-condensed" border="0">
-      <tr>
-        <td>品类<input type="text" id="add_cat" name="name"></td>
-        <td><button class="btn btn-default"><?php echo $lang["ADD"]; ?></button></td>
-        <input type="hidden" name="api" value="add">
-      </tr>
-    </table>
-  </form>
-</div>
-<!--api-->
-<script>
-	function delete_cat(e){
-		var tr = e.parent().parent();
-		var id = tr.data("id");
-		$("#delete_id").val(id);
-		$("#delete").submit();
-	}
-	function update_cat(e){
-		var tr = e.parent().parent();
-		var id = tr.data("id");
-		var name = tr.find("#cat_name").val();
-		$("#update_id").val(id);
-		$("#update_name").val(name);
-		$("#update").submit();
-	}
-</script>
-<!--update-->
-<form action="" method="post" id="update">
-	<input type="hidden" name="id" id="update_id">
-	<input type="hidden" name="name" id="update_name">
-	<input type="hidden" name="api" value="update">
-</form>
-<!--delete-->
-<form action="" method="post" id="delete">
-	<input type="hidden" name="id" id="delete_id">
-	<input type="hidden" name="api" value="delete">
-</form>
-
+	<?php
+		require_once("App/Home/View/Default/common/head-style.html");
+		require_once("App/Home/View/Default/common/head.html");
+	?>
+	<div>
+	<table class="table table-condensed table-hover"  border="0">
+		<thead>
+		  <tr>
+			<td>品类</td>
+		  </tr>
+		</thead>
+		<tbody>
+			<?php foreach($cats as $category) { ?>
+				<tr data-id="<?php echo $category['id'];?>">
+					<td><input type="text" id="cat_name"  value="<?php echo $category['name'];?>"></td>
+					<td><button onclick="update_cat($(this));"><?php echo $lang["UPDATE"]; ?></button></td>
+					<td><button onclick="delete_cat($(this)); "><?php echo $lang["DELETE"]; ?></button></td>
+				</tr>
+			<?php } ?>
+		</tbody>
+	</table>
+	<!--
+		<foreach name="list" item="obj"></foreach> {$obj.name}
+	-->
+	<!--add-->
+	<div>
+	  <form action="" method="post">
+		<table class="table table-condensed" border="0">
+		  <tr>
+			<td>品类<input type="text" id="add_cat" name="name"></td>
+			<td><button class="btn btn-default"><?php echo $lang["ADD"]; ?></button></td>
+			<input type="hidden" name="api" value="add">
+		  </tr>
+		</table>
+	  </form>
+	</div>
+	<!--api-->
+	<script>
+		function delete_cat(e){
+			var tr = e.parent().parent();
+			var id = tr.data("id");
+			$("#delete_id").val(id);
+			$("#delete").submit();
+		}
+		function update_cat(e){
+			var tr = e.parent().parent();
+			var id = tr.data("id");
+			var name = tr.find("#cat_name").val();
+			$("#update_id").val(id);
+			$("#update_name").val(name);
+			$("#update").submit();
+		}
+	</script>
+	<!--update-->
+	<form action="" method="post" id="update">
+		<input type="hidden" name="id" id="update_id">
+		<input type="hidden" name="name" id="update_name">
+		<input type="hidden" name="api" value="update">
+	</form>
+	<!--delete-->
+	<form action="" method="post" id="delete">
+		<input type="hidden" name="id" id="delete_id">
+		<input type="hidden" name="api" value="delete">
+	</form>
 </body>
 </html>

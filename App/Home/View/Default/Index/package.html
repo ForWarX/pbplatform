@@ -1,37 +1,85 @@
 <html>
-<?php
-require_once( "App/Home/View/Default/common/head-style.html" );
-?>
-<body id="iframe3">
-<h1>包装</h1>
-<table class="table table-condensed table-hover" border="0">
- <tr id="pro">
-	<td><input type="checkbox" class="span1">描述<input type="text" placeholder="单件或大中小包装等"></td>
- </tr>
-  <tr id="pro1">
-	<td><input type="checkbox" class="span1">净重<input type="text">kg</td>
- </tr>
-  <tr id="pro2">
-	<td><input type="checkbox" class="span1">毛重<input type="text">kg</td>
- </tr>
-  <tr id="pro3">
-	<td><input type="checkbox" class="span1">长<input type="text">cm</td>
- </tr>
-  <tr id="pro4">
-	<td><input type="checkbox" class="span1">宽<input type="text">cm</td>
- </tr>
-  <tr id="pro5">
-	<td><input type="checkbox" class="span1">高<input type="text">cm</td>
- </tr>
-  <tr id="pro6">
-	<td><input type="checkbox" class="span1">数量<input type="text" placeholder="一包装袋有多少件"></td>
- </tr>
- <tr id="pro7">
-  <td><input type="checkbox" class="span1">全选</td> 
-  <td><button type="button">修改</a></button></td>
-</tr>
-</table>
-</body>
+  <body id="iframe3">
+    <?php
+     require_once( "App/Home/View/Default/common/head-style.html" );
+     ?>
+  <h1>包装</h1>
+    <form class="form-inline">
+       <table class="table table-condensed table-hover" border="0">
+           <tr>
+             <div class="form-group">
+                <td>
+                   <input type="checkbox">
+                   <label for="packagedesc">描述</label>
+                   <input type="text" class="form-control" id="packagedesc"  placeholder="单件或大中小包装等">
+                </td>
+             </div>
+           </tr>
+           <tr>
+             <div class="form-group">
+                <td>
+                   <input type="checkbox">
+                   <label for="weightpackage">净重</label>
+                   <input type="text" class="form-control" id="weightpackage">kg
+                </td>
+             </div>
+           </tr>
+           <tr>
+             <div class="form-group">
+                <td>
+                   <input type="checkbox">
+                   <label for="packageweight">毛重</label>
+                   <input type="text" class="form-control" id="packageweight">kg
+                </td>
+             </div>
+           </tr>
+           <tr>
+             <div class="form-group">
+                <td>
+                   <input type="checkbox">
+                   <label for="package">长</label>
+                   <input type="text" class="form-control" id="package">cm
+                </td>
+             </div>
+           </tr>
+           <tr>
+             <div class="form-group">
+                <td>
+                   <input type="checkbox">
+                   <label for="package1">宽</label>
+                   <input type="text" class="form-control" id="package1">cm
+                </td>
+             </div>
+           </tr>
+           <tr>
+             <div class="form-group">
+                <td>
+                  <input type="checkbox">
+                  <label for="packagehigh">高</label>
+                  <input type="text" class="form-control" id="packagehigh">cm
+                </td>
+             </div>
+           </tr>
+           <tr>
+             <div class="form-group">
+                <td>
+                   <input type="checkbox">
+                   <label for="packagemun">数量</label>
+                   <input type="text" class="form-control" id="packagemun" placeholder="一包装袋有多少件">
+                </td>
+             </div>
+           </tr>
+           <tr>
+             <div class="form-group">
+               <td><input type="checkbox">全选</td>
+               <td><button type="button">修改</button></td>
+             </div>
+           </tr>
+       </table>
+    </form>
+  </body>
 </html>
+
+
 
 

@@ -34,6 +34,7 @@ return array(
     'index_backup'=>'Backup_Info',
     'index_import'=>'Import',
     'index_export'=>'Export',
+    'index_carton'=>'Carton',
 
 
 

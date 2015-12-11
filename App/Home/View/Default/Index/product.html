@@ -1,87 +1,191 @@
 <html>
-<?php
-require_once( "App/Home/View/Default/common/head-style.html" );
-?>
 <body id="iframe2">
+<?php
+   require_once( "App/Home/View/Default/common/head-style.html" );
+   ?>
 <h1>产品</h1>
-
-<table class="table table-condensed table-hover" border="0" class="text-center">
-  <tr id="p1">
-    <td><input type="checkbox" class="span1">品牌<input type="text"></td>
-  </tr>
-   <tr id="p2">
-    <td><input type="checkbox" class="span1">产品名称<input type="text"></td>
-  </tr>
-   <tr id="p3">
-    <td><input type="checkbox" class="span1">产品描述<input type="textarea"></td>
-  </tr>
-   <tr id="p4">
-    <td><input type="checkbox" class="span1">配料<input type="textarea"></td>
-  </tr>
-  <tr id="p5">
-    <td><input type="checkbox" class="span1">保质期<input type="text"></td>
-  </tr>
-  <tr id="p6">
-    <td><input type="checkbox" class="span1">销售单位<input type="text"></td>
-  </tr>
-   <tr id="p7">
-    <td><input type="checkbox" class="span1">产地<input type="text"></td>
-  </tr>
-  <tr id="p8">
-    <td><input type="checkbox" class="span1">商品类型
-    <form id="p9">
-      <select>
-        <option></option>
-        <option>跨境</option>
-        <option>一般贸易</option>
-        <option>本地</option>
-        <option>全部</option>
-      </select>
-    </form>
-   </td>
-  </tr>
-  <tr id="p10">
-    <td><input type="checkbox" class="span1">品类<input type="text"></td>
-  </tr>
-  <tr id="p11">
-    <td><input type="checkbox" class="span1">HSCODE<input type="text"></td>
-  </tr>
-   <tr id="p12">
-    <td><input type="checkbox" class="span1">规格<input type="text"></td>
-  </tr>
-   <tr id="p13">
-    <td><input type="checkbox" class="span1">板规<input type="text"></td>
-  </tr>
-  <tr id="p14">
-    <td><input type="checkbox" class="span1">箱规<input type="text"></td>
-  </tr>
-  <tr id="p15">
-    <td><input type="checkbox" class="span1">税则号<input type="text"></td>
-  </tr>
-   <tr id="p16">
-    <td><input type="checkbox" class="span1">行邮税<input type="text"></td>
-  </tr>
-  <tr id="p17">
-    <td><input type="checkbox" class="span1">关税<input type="text"></td>
-  </tr>
-  <tr id="p18">
-    <td><input type="checkbox" class="span1">条形码<input type="text"></td>
-  </tr>
-  <tr id="p19">
-    <td><input type="checkbox" class="span1">贸易条款     
-    <form id="Button17">
-      <select>
-        <option></option>
-        <option>FOB</option>
-        <option>CF</option>
-      </select>
-     </form>
-     </td>
-  </tr>
-  <tr id="p20">
-    <td><input type="checkbox" class="span1">全选</td>
-    <td><button type="button">修改</a></button></td>
-</table>
-
+<form class="form-inline">
+    <table class="table table-condensed table-hover" border="0">
+        <tr>
+            <div class="form-group">
+                <td>
+                    <input type="checkbox">
+                    <label for="brand">品牌</label>
+                    <input type="text" class="form-control" id="brand">
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+                    <input type="checkbox">
+                    <label for="name">产品名称</label>
+                    <input type="text" class="form-control" id="name">
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+                    <input type="checkbox">
+                    <label for="desc">产品描述</label>
+                    <input type="textarea" class="form-control" id="desc">
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+                    <input type="checkbox">
+                    <label for="ingrdien">配料</label>
+                    <input type="text" class="form-control" id="ingrdien">
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+                    <input type="checkbox">
+                    <label for="bestbefore">保质期</label>
+                    <input type="date" class="form-control" id="bestbefore">
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+                    <input type="checkbox">
+                    <label for="salecompany">销售单位</label>
+                    <input type="text" class="form-control" id="salecompany">
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+                    <input type="checkbox">
+                    <label for="place">产地</label>
+                    <input type="text" class="form-control" id="place">
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+                    <input type="checkbox">
+                    <label for="cat">商品类型</label>
+                        <select id="cat" class="form-control">
+                            <option></option>
+                            <option>跨境</option>
+                            <option>一般贸易</option>
+                            <option>本地</option>
+                            <option>全部</option>
+                        </selectid>
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+                    <input type="checkbox">
+                    <label for="cat">品类</label>
+                    <input type="text" class="form-control" id="cat">
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+                    <input type="checkbox">
+                    <label for="hec">HSCODE</label>
+                    <input type="textarea" class="form-control" id="hec">
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+                    <input type="checkbox">
+                    <label for="spc">规格</label>
+                    <input type="text" class="form-control" id="spc">
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+                    <input type="checkbox">
+                    <label for="ban">板规</label>
+                    <input type="text" class="form-control" id="ban">
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+                    <input type="checkbox">
+                    <label for="xiang">箱规</label>
+                    <input type="text" class="form-control" id="xiang">
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+                    <input type="checkbox">
+                    <label for="tax">税则号</label>
+                    <input type="text" class="form-control" id="tax">
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+                    <input type="checkbox">
+                    <label for="xing">行邮税</label>
+                    <input type="textarea" class="form-control" id="xing">
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+                    <input type="checkbox">
+                    <label for="guang">关税</label>
+                    <input type="text" class="form-control" id="guang">
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+                    <input type="checkbox">
+                    <label for="code">条形码</label>
+                    <input type="text" class="form-control" id="code">
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+                    <input type="checkbox">
+                    <label for="trade">贸易条款</label>
+                    <select id="trade" class="form-control">
+                        <option></option>
+                        <option>FOB</option>
+                        <option>CF</option>
+                        </selectid>
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td><input type="checkbox">全选</td>
+                <td><button type="button">修改</button></td>
+            </div>
+        </tr>
+    </table>
+</form>
 </body>
 </html>
+
