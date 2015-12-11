@@ -44,11 +44,6 @@ class IndexController extends Controller {
         $this->assign('lang',L());
         $this->display();
     }
-    public function carton(){
-        //获得语言变量信息
-        $this->assign('lang',L());
-        $this->display();
-    }
     public function package() {
         //获得语言变量信息
         $this->assign('lang',L());
@@ -88,6 +83,13 @@ class IndexController extends Controller {
         //获得语言变量信息
         $this->assign('lang',L());
         $this->display();
+    }
+    public function carton(){
+        //获得语言变量信息
+        $this->assign('lang',L());
+        $this->display();
+        //api
+
     }
     public function customer_info(){
         //获得语言变量信息
