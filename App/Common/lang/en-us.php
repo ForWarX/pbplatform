@@ -3,7 +3,7 @@ return array(
     //public
     'delete'=>'Delete',
     'add'=>'add',
-    'view'=>'View',
+    'view'=>'View&Update',
     'update'=>'update',
 
     'show15'=>'View15',

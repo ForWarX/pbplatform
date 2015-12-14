@@ -19,7 +19,7 @@ class IndexController extends Controller {
         $this->assign('lang',L());
         $this->display();
     }
-    public function productall(){
+    public function productdetail(){
         //获得语言变量信息
         $this->assign('lang',L());
         $this->display();
@@ -49,12 +49,27 @@ class IndexController extends Controller {
         $this->assign('lang',L());
         $this->display();
     }
+    public function package_add() {
+        //获得语言变量信息
+        $this->assign('lang',L());
+        $this->display();
+    }
     public function picture(){
         //获得语言变量信息
         $this->assign('lang',L());
         $this->display();
     }
+    public function picture_add(){
+        //获得语言变量信息
+        $this->assign('lang',L());
+        $this->display();
+    }
     public function price(){
+        //获得语言变量信息
+        $this->assign('lang',L());
+        $this->display();
+    }
+    public function price_add(){
         //获得语言变量信息
         $this->assign('lang',L());
         $this->display();
@@ -74,12 +89,52 @@ class IndexController extends Controller {
         $this->assign('lang',L());
         $this->display();
     }
+    public function special_add(){
+    //获得语言变量信息
+    $this->assign('lang',L());
+    $this->display();
+    }
+    public function addallproduct(){
+        //获得语言变量信息
+        $this->assign('lang',L());
+        $this->display();
+    }
+    public function lable_add(){
+        //获得语言变量信息
+        $this->assign('lang',L());
+        //api-add
+        if (IS_POST){
+            $data=I("post.");
+            $result=api_request("Lable",$data);
+            if ($result['status']){
+                $this->success("成功","lable.html");
+            } else {
+                $this->error($result['err']);
+            }
+            exit();
+        }
+        $result = api_request("Lable");
+
+        $this->assign("lab", $result['data']);
+        $this->assign("result", $result);
+        $this->display();
+    }
+    public function lable(){
+        //获得语言变量信息
+        $this->assign('lang',L());
+        $this->display();
+    }
     public function logic(){
         //获得语言变量信息
         $this->assign('lang',L());
         $this->display();
     }
-    public function transport(){
+    public function transport_add(){
+        //获得语言变量信息
+        $this->assign('lang',L());
+        $this->display();
+    }
+    public function carton_add(){
         //获得语言变量信息
         $this->assign('lang',L());
         $this->display();

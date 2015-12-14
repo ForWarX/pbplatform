@@ -4,7 +4,7 @@ return array(
     //public
     'delete'=>'删除',
     'add'=>'添加',
-    'view'=>'查看',
+    'view'=>'查看修改',
     'update'=>'编辑',
 
     'show15'=>'显示15',
