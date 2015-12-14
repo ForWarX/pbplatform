@@ -10,16 +10,78 @@
             <th>宽</th>
             <th>高</th>
             <th>数量</th>
+            <th>描述</th>
         </thead>
         <tbody>
-            <tr>
-                <td><input type="text">cm</td>
-                <td><input type="text">cm</td>
-                <td><input type="text">cm</td>
-                <td><input type="text"></td>
+        <?php foreach($car as $carton) { ?>
+             <tr data-id="<?php echo $carton['id'];?>">
+                <td><input type="text" id="car_length" value="<?php echo $carton['length'];?>">cm</td>
+                <td><input type="text" id="car_height" value="<?php echo $carton['height'];?>">cm</td>
+                <td><input type="text" id="car_width" value="<?php echo $carton['width'];?>">cm</td>
+                <td><input type="text" id="car_num" value="<?php echo $carton['num'];?>"></td>
+                <td><input type="texteare"  id="car_desc" value="<?php echo $carton['desc'];?>"></td>
+                <td></td>
+                <td></td>
+                <td><button onclick="update_car($(this));"><?php echo $lang["UPDATE"]; ?></button></td>
+                <td><button onclick="delete_car($(this)); "><?php echo $lang["DELETE"]; ?></button></td>
             </tr>
-
+        <?php } ?>
         </tbody>
     </table>
+    <!--add-->
+        <form action="" method="post">
+            <table class="table table-condensed" border="0">
+                <tr>
+                    <td>长<input type="text" id="add_car" name="length_add">cm</td>
+                    <td>宽<input type="text" id="add_car" name="height_add">cm</td>
+                    <td>高<input type="text" id="add_car" name="width_add">cm</td>
+                    <td>数量<input type="text" id="add_car" name="num_add"></td>
+                    <td>描述<input type="texteare" id="add_car" name="desc_add" placeholder="最多不超过20个字"></td>
+                    <td><button class="btn btn-default"><?php echo $lang["ADD"]; ?></button></td>
+                    <input type="hidden" name="api" value="add">
+                </tr>
+            </table>
+        </form>
+        <!--api-->
+        <script>
+            function delete_car(e){
+                var tr = e.parent().parent();
+                var id = tr.data("id");
+                $("#delete_id").val(id);
+                $("#delete").submit();
+            }
+            function update_car(e){
+                var tr = e.parent().parent();
+                var id = tr.data("id");
+                var length = tr.find("#car_length").val();
+                var height = tr.find("#car_height").val();
+                var width = tr.find("#car_width").val();
+                var num = tr.find("#car_num").val();
+                var desc = tr.find("#car_desc").val();
+                $("#update_id").val(id);
+                $("#update_length").val(length);
+                $("#update_height").val(height);
+                $("#update_width").val(width);
+                $("#update_num").val(num);
+                $("#update_desc").val(desc);
+                $("#update").submit();
+            }
+        </script>
+        <!--update-->
+        <form action="" method="post" id="update">
+            <input type="hidden" name="id" id="update_id">
+            <input type="hidden" name="length" id="update_length">
+            <input type="hidden" name="height" id="update_height">
+            <input type="hidden" name="width" id="update_width">
+            <input type="hidden" name="num" id="update_num">
+            <input type="hidden" name="desc" id="update_desc">
+            <input type="hidden" name="api" value="update">
+        </form>
+        <!--delete-->
+        <form action="" method="post" id="delete">
+            <input type="hidden" name="id" id="delete_id">
+            <input type="hidden" name="api" value="delete">
+        </form>
+    </div>
 </body>
 </html>

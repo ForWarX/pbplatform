@@ -87,9 +87,22 @@ class IndexController extends Controller {
     public function carton(){
         //获得语言变量信息
         $this->assign('lang',L());
-        $this->display();
         //api
+        if (IS_POST){
+            $data=I("post.");
+            $result=api_request("Carton",$data);
+            if ($result['status']){
+                $this->success("成功","carton.html");
+            } else {
+                $this->error($result['err']);
+            }
+            exit();
+        }
+        $result = api_request("Carton");
 
+        $this->assign("car", $result['data']);
+        $this->assign("result", $result);
+        $this->display();
     }
     public function customer_info(){
         //获得语言变量信息
