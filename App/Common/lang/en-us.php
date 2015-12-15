@@ -5,6 +5,7 @@ return array(
     'add'=>'add',
     'view'=>'View',
     'update'=>'update',
+    'logout'=>'Logout',
 
     'show15'=>'View15',
     'show25'=>'View25',

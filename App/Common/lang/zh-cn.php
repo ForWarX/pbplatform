@@ -6,6 +6,7 @@ return array(
     'add'=>'添加',
     'view'=>'查看',
     'update'=>'编辑',
+    'logout'=>'退出',
 
     'show15'=>'显示15',
     'show25'=>'显示25',

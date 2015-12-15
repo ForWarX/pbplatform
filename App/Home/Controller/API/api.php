@@ -10,7 +10,7 @@
         curl_setopt($curl, CURLOPT_POST, 1);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
         // post end
-        $data = curl_exec($curl);
+        $data = curl_exec($curl); 
         curl_close($curl);
         return json_decode($data, true);
     }

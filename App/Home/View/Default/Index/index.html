@@ -18,28 +18,37 @@ require_once( "App/Home/View/Default/common/head-style.html");
     }
     </style>
 </head>
-<body>
-<p><a href="?l=zh-cn">简体中文</a> | <a href="?l=en-us">English</a></p>
-<h1>{$lang.INDEX_LOGO}</h1>
-<!--图片默认
-<div class="bs-docs-example bs-docs-example-images">
-  <img  src="Home/Index/image/polarbearlogo.jpg"  >
-</div><br>-->
-<!--主体-->
-<form id="iframe0">
-    <div class="control-group">
-        {$lang.INDEX_USERNAME}<input id="username" type="username" required>
+  <body>
+  <p><a href="?l=zh-cn">简体中文</a> | <a href="?l=en-us">English</a></p>
+  <h1>{$lang.INDEX_LOGO}</h1>
+  <!--图片默认
+  <div class="bs-docs-example bs-docs-example-images">
+    <img  src="Home/Index/image/polarbearlogo.jpg"  >
+  </div><br>-->
+  <!--主体-->
+    <form class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label" for="inputusername">{$lang.INDEX_USERNAME}</label>
+        <div class="controls">
+          <input type="text" id="inputusername" >
+        </div>
       </div>
-    <div class="control-group">
-        {$lang.INDEX_PASSWORD}<input id="password"type="password" required>
-    </div>
-<div class="control-group">
-    <label class="checkbox">
-    <input id="remeberme" type="checkbox">{$lang.INDEX_REMEBERME}<br>
-    <div class="control-group">
-        <button id="loginbutton" type="button"><a href="http://localhost/pbplatform/Home/Index/productview.html">{$lang.INDEX_LOGIN}</button>
-    </div>
-</div>
-</form>
-</body>
+      <div class="control-group">
+        <label class="control-label" for="inputPassword">{$lang.INDEX_LOGIN}</label>
+        <div class="controls">
+          <input type="password" id="inputPassword" placeholder="Password">
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <label class="checkbox">
+            <input type="checkbox">{$lang.INDEX_REMEBERME}
+          </label>
+          <button type="submit" class="btn"><a href="http://localhost/pbplatform/Home/Index/productview.html">{$lang.INDEX_LOGIN}</button>
+        </div>
+      </div>
+    </form>
+  </body>
 </html>
+
+

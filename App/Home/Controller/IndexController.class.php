@@ -102,21 +102,6 @@ class IndexController extends Controller {
     public function lable_add(){
         //获得语言变量信息
         $this->assign('lang',L());
-        //api-add
-        if (IS_POST){
-            $data=I("post.");
-            $result=api_request("Lable",$data);
-            if ($result['status']){
-                $this->success("成功","lable.html");
-            } else {
-                $this->error($result['err']);
-            }
-            exit();
-        }
-        $result = api_request("Lable");
-
-        $this->assign("lab", $result['data']);
-        $this->assign("result", $result);
         $this->display();
     }
     public function lable(){
@@ -214,10 +199,10 @@ class IndexController extends Controller {
             exit();
         }
         $result = api_request("Category");
-
         $this->assign("cats", $result['data']);
         $this->assign("result", $result);
         $this->display();
+
 
     }
     public function brand(){
@@ -301,12 +286,6 @@ class IndexController extends Controller {
         $this->display();
         var_dump($show);
     }
-
-
-
-
-
-
 
 
 }
