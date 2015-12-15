@@ -1,24 +1,21 @@
-<html>
+
 <body id="iframe27">
-    <?php
-    require_once("App/Home/View/Default/common/head-style.html");
-    ?>
-<h1>标签</h1>
-<form class="form-horizontal" action="" method="post">
-    <table class="table table-condensed table-hover" border="0">
-        <div class="form-group">
-            <tr data-id="<?php echo $lable['id']; ?>">
-                <td>
-                    <div class="col-sm-1"><input type="checkbox"></div>
-                    <div class="col-sm-8"><input type="text" class="form-control" id="add_lable" name="name"  value="<?php echo $brand['name']; ?>" ></div>
-                </td>
-                <td>
-                    <button class="btn btn-default col-sm-3"><?php echo $lang["UPDATE"]; ?></button>
-                    <input type="hidden" name="api" value="add">
-                </td>
-            </tr>
-        </div>
-    </table>
-</form>
+    <h1>标签</h1>
+    <form class="form-horizontal" action="" method="post">
+        <table class="table table-condensed table-hover" border="0">
+            <div class="form-group">
+                <tr>
+                    <td>
+                        <div class="col-sm-1"><input type="checkbox"></div>
+                        <div class="col-sm-2"><input type="text" class="form-control" id="add_lable" name="name"></div>
+                        <div class="col-sm-2"><input type="text" class="form-control" id="add_lable" name="name"></div>
+                        <div class="col-sm-2"><input type="text" class="form-control" id="add_lable" name="name"></div>
+                        <div class="col-sm-2"><input type="text" class="form-control" id="add_lable" name="name"></div>
+                        <div class="col-sm-2"><input type="text" class="form-control" id="add_lable" name="name"></div>
+                        <div class="col-sm-1"><button><?php echo $lang["ADD"]; ?></button>
+                    </td>
+                 </tr>
+            </div>
+        </table>
+    </form>
 </body>
-</html>
